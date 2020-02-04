@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "jquery": "^3.4.1",
+    "jquery-mask-plugin": "^1.14.16",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",

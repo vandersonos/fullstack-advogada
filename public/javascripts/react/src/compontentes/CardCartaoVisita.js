@@ -9,7 +9,7 @@ class CardCartaoVisita extends React.Component{
                     <div className="card-panel hoverable  lighten-5 z-depth-1 cartaoVisita">
                         <div className="row">
                             <div className="col s12 m4 fotoCartao">
-                                <img src="img/taiane_perfil.jpeg" alt="" className="circle responsive-img" />
+                                <img src="img/taiane_perfil.jpeg" alt="" className="circle responsive-img img-perfil" />
                             </div>
                             <div className="col s12 m8 textoCartao">
                                 <span className="nome">Taiane Martins Costa</span>

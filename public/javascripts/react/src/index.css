@@ -29,7 +29,7 @@ nav{
         padding-top: 1rem!important;
     padding-bottom: .1rem!important;
 }
-.circle{
+.img-perfil{
     border: 10px var(--corpadraborda) solid;
     margin-left: -60px;
 }
@@ -96,6 +96,22 @@ nav{
 }
 .form-title-pagina-facebook{
     margin-bottom: 2rem;
+}
+.box-carregando{
+    text-align: center;
+    display:none;
+}
+.box-mensagem{
+    color:#fff;
+    
+}
+.error{
+    background-color: #ee6e73;
+    padding:1em!important;
+}
+.success{
+    background-color: #4db6ac !important;
+    padding:1em!important;
 }
 /* xs */
 @media (max-width:767px) {
