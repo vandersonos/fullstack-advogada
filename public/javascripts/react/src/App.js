@@ -16,10 +16,10 @@ function App() {
             img:'img/divorcio.jpg',
             texto: "",
             itens:[
-                    "Divórcio Judicial Litigioso",
-                    "Divórcio Judicial Consensual",
-                    "Dissolução de União Estável",
-                    "Anulação de Casamento"
+                    "Divórcio Judicial",
+                    "Divórcio Extrajudicial",
+                    "Dissolução de União Estável Consensual",
+                    "Dissolução de União Estável Litigiosa"
             ]
         },
         {
@@ -29,33 +29,19 @@ function App() {
             texto: "",
             itens:[
                     "Guarda Provisória",
-                    "Regulamentação de Visitas",
-                    "Busca e Apreensão de crianças e adolescentes",
-                    "Alteração de Guarda"
+                    "Guarda Alternada",
+                    "Guarda Compartilhada",
+                    "Guarda Unilateral"
             ]
         
         },
         {
             id:'pensao',
-            titulo:'Pensão Alimentícia',
+            titulo:'Pensão de Alimentos',
             img:'img/pensao-alimenticia.jpg',
             itens:[
-                "Proposição e/ou contestação",
-                "Investigação de paternidade",
-                "Negatória de Paternidade",
-                "Execução de Alimentos (pena de prisão/ penhora)"
-            ],
-            texto:""
-        },
-        {
-            id:'inventario',
-            titulo:'Inventário',
-            img:'img/inventario.jpg',
-            itens:[
-                "Abertura de testamento",
-                "Remoção de Inventariante",
-                "Habilitação de Herdeiros",
-                "Nulidade de Testamento"
+                "Ação de Alimentos",
+                "Ação de Regualação de Visitas"
             ],
             texto:""
         }
