@@ -118,7 +118,7 @@ nav{
     button {
         font-size: 10px!important;
     }
-    .circle{
+    .img-perfil{
         margin-left: 0px;
     }
     .fotoCartao{
@@ -136,7 +136,7 @@ nav{
     .nome{
         font-size: 2rem;
     }
-    .circle{
+    .img-perfil{
         margin-left: -40px;
     }
     .card .card-image img {

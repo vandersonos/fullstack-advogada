@@ -84,9 +84,10 @@ router.post('/send', function(req, res, next) {
     ses.sendEmail(params, function(err, data) {
         // If something goes wrong, print an error message.
         if(err) {
-            console.log(err.message);
-            res.status(500).json({msg:"Ocorreu um erro ao enviar sua mensagem! Por favor tente mais tarde ou se preferir nos contate pelo whatsapp ou facebook"})
+            console.log(err.message, err);
+            res.status(500).json({msg:"Ocorreu um erro ao enviar sua mensagem! Por favor tente mais tarde ou se preferir nos contate pelo whatsapp ou facebook"+err.message})
         } else {
+            console.log(data, 'data')
             res.status(200).json({msg:"Sua mensagem foi enviada com sucesso!"});
         }
     });
