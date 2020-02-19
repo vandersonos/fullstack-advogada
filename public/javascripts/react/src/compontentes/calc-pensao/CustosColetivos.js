@@ -12,7 +12,8 @@ class CustosColetivos extends React.Component{
         this.state = {
             // "DataSource" é uma fonte de dados global
             lista: lista,
-            total: this.props.totalColetivo
+            total: this.props.totalColetivo,
+            nr_pessoas:1
         };
     }
     componentDidMount() {
@@ -21,23 +22,33 @@ class CustosColetivos extends React.Component{
     }
     rmItem(e){
         let lista = this.state.lista;
-        let id = parseInt($(e.target).prop('id'))
+        let id = $(e.target).prop('id')
+        let nr_pessoas = $('#cc_nr_pessoas').val()
         lista = lista.filter( function(item){ 
             
             return item.id !== id
         })
+        
+        let valor = lista.reduce((acumulador, i)=>{
+            return acumulador + i.valor;
+        },0)
         this.setState({lista: lista})
+        this.setState({lista: lista, total: valor/nr_pessoas})
+        this.props.onTotalColetivoChange(valor/nr_pessoas);
     }
     addItem(){
         let lista = this.state.lista;
+        let nr_pessoas = $('#cc_nr_pessoas').val()
         let o = {
             id: "cc_"+lista.length+1,
             item: $('#cc_item-despesa').val(),
             valor: parseInt($('#cc_item-valor').val())
         }
         lista.push(o)
-        let valor = parseInt(this.state.total) + o.valor
-        this.setState({lista: lista, total: valor})
+        $('#cc_item-despesa').val('');
+        $('#cc_item-valor').val('');
+        let valor = parseFloat(this.state.total) + (o.valor/nr_pessoas)
+        this.setState({lista: lista, total: valor, nr_pessoas:nr_pessoas})
         this.props.onTotalColetivoChange(valor);
     }
     render(){
@@ -59,6 +70,10 @@ class CustosColetivos extends React.Component{
             <div  className="card-panel">
                 <div class="row">
                     <div className='col'><h5>Gastos coletivos dos moradores da residência</h5></div>
+                    <div class="input-field col s12">
+                        <input placeholder="" id="cc_nr_pessoas" type="text" class="validate"/>
+                        <label for="nr_pessoas">Quantas pessoas moram na residência?</label>
+                    </div>
                     <div class="input-field col s6">
                         <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
                         <label for="item-despesa">Descricão</label>

@@ -22,20 +22,28 @@ class CustosIndividuais extends React.Component{
     }
     rmItem(e){
         let lista = this.state.lista;
-        let id = parseInt($(e.target).prop('id'))
+        let id = $(e.target).prop('id')
         lista = lista.filter( function(item){ 
             
             return item.id !== id
         })
-        this.setState({lista: lista})
+        
+        let valor = lista.reduce((acumulador, i)=>{
+            return acumulador + i.valor;
+        },0)
+        console.log(valor,'valor', lista)
+        this.setState({lista: lista, total: valor.toFixed(2)})
+        this.props.onTotalIndividualChange(valor);
     }
       addItem(){
         let lista = this.state.lista;
         let o = {
-            id: "cc_"+lista.length+1,
+            id: "ci_"+(lista.length+1),
             item: $('#item-despesa').val(),
-            valor: parseInt($('#item-valor').val())
+            valor: parseFloat($('#item-valor').val())
         }
+        $('#item-despesa').val('');
+        $('#item-valor').val('');
         lista.push(o)
         let valor = parseFloat(this.state.total) + o.valor
         this.setState({lista: lista, total: valor.toFixed(2)})
@@ -59,7 +67,7 @@ class CustosIndividuais extends React.Component{
         }
         return (
             <div className="card-panel">
-            <div className='col'><h5>Gastos individuais do beneficiado</h5></div>
+                <div className='row'><h5>Gastos individuais do beneficiado</h5></div>
                 <div class="row">
                     <div class="input-field col s6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>
@@ -68,7 +76,7 @@ class CustosIndividuais extends React.Component{
                     <div class="input-field col s4">
                         <input id="item-valor" type="number" class="validate"/>
                         <label for="item-valor">Valor</label>
-                       
+                    
                     </div>
                     <div class="input-field col s2">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
