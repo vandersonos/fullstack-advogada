@@ -12,7 +12,7 @@ class CustosIndividuais extends React.Component{
         this.state = {
             // "DataSource" é uma fonte de dados global
             lista: lista,
-            total: 0,
+            total: this.props.totalIndividual,
             nr_moradores:1
         };
     }
@@ -39,7 +39,9 @@ class CustosIndividuais extends React.Component{
         lista.push(o)
         let valor = parseFloat(this.state.total) + o.valor
         this.setState({lista: lista, total: valor.toFixed(2)})
+        this.props.onTotalIndividualChange(valor);
     }
+    
     render(){
         let itens = [];
         for (const [index, value] of this.state.lista.entries()) {
@@ -56,7 +58,8 @@ class CustosIndividuais extends React.Component{
             );
         }
         return (
-            <div >
+            <div className="card-panel">
+            <div className='col'><h5>Gastos individuais do beneficiado</h5></div>
                 <div class="row">
                     <div class="input-field col s6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>

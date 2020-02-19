@@ -11,11 +11,11 @@ class Proporcionalidade extends React.Component{
   
         this.state = {
             // "DataSource" é uma fonte de dados global
-            perc_pagador:0.0,
-            perc_recebedor:0.0,
-            valorRecebedor: 0.0,
-            valorEstimado:0.0,
-            custoTotal: props.custoTotal
+            rendaPagador:0.0,
+            rendaBeneficiado:0.0,
+            valorTotal : 0.0,
+            perc_pagador: 0.0,
+            perc_recebedor: 0.0
         };
 
     }
@@ -27,54 +27,63 @@ class Proporcionalidade extends React.Component{
         let lista = this.state.lista;
         let valorPagador = parseFloat($('#p-renda-pagar').val())
         let valorRecebedor = parseFloat($('#p-renda-receber').val())
-        let valorTotal = valorRecebedor + valorPagador
-        let perc_pagador = parseFloat((valorPagador * 100)/valorTotal)
-        let perc_recebedor = parseFloat((valorRecebedor * 100)/valorTotal)
-        
-        let valorPagadorTotal = (parseFloat(this.state.custoTotal)*(perc_pagador/100))
-        let valorRecebedorTotal  = (parseFloat(this.state.custoTotal)*(perc_recebedor/100))
+
+        let total = valorRecebedor + valorPagador;
+        let perc_pagador = parseFloat((valorPagador * 100)/total)
         this.setState({
-            valorRecebedor: valorRecebedorTotal.toFixed(2),
-            valorEstimado: valorPagadorTotal.toFixed(2), 
-            perc_recebedor: perc_recebedor.toFixed(2), 
-            perc_pagador: perc_pagador.toFixed(2)
+            rendaPagador:valorPagador,
+            rendaBeneficiado:valorRecebedor,
+            valorTotal : total,
+            perc_pagador:perc_pagador,
+            perc_recebedor: parseFloat((valorRecebedor * 100)/total)
         })
-        console.log(this.state,'this.state')
+        this.props.onTotalPensaoChange((parseFloat(this.props.custoTotal)*(perc_pagador/100)));
+        console.log(this.state,'this.state',this.state.custoTotal)
     }
     render(){
+        console.log(this.props.custoTotal, 'total proporcional',this.state.custoTotal)
+        
+        let valorTotal = this.state.valorTotal
+        let perc_pagador = this.state.perc_pagador;
+        let perc_recebedor = this.state.perc_recebedor;
+        
+        let valorPagadorTotal = (parseFloat(this.props.custoTotal)*(perc_pagador/100))
+        let valorRecebedorTotal  = (parseFloat(this.props.custoTotal)*(perc_recebedor/100))
+        
         return (
-            <div class='row'>
-                <div class='col s12 m6'>
-                    <div class="row">
+            <div className="card-panel">
+                <div class='row '>
+                    <div className='col s12 m12'><h5>Proporcionalidade</h5></div>
+                    <div class="col s12 m6">
                         <div class="input-field col s12">
                             <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} class="validate"/>
                             <label for="p-renda-pagar">Renda da pessoal que vai pagar</label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="col s12 m6">
                         <div class="input-field col s12">
                         <input placeholder="" id="p-renda-receber" type="number" onChange={this.calculaValor}  class="validate"/>
                             <label for="p-renda-receber">Renda da pessoal que vai receber</label>
                         </div>
                     </div>
                 </div>
-                <div class='col s12 m6'>
-                    <div class="row">
+                <div class='row'>
+                    <div class="col s12 m6">
                         Porcentagem de responsabilidade pagador
                         <span class="resultado col s6">
-                            {this.state.perc_pagador} %
+                            {perc_pagador} %
                         </span>
                         <span class="resultado col s6">
-                            R$ {this.state.valorEstimado} 
+                            R$ {valorPagadorTotal} 
                         </span>
                     </div>
-                    <div class="row">
+                    <div class="col s12 m6">
                         Porcentagem de responsabilidade recebedor
                         <span class="resultado col s6">
-                            {this.state.perc_recebedor} % 
+                            {perc_recebedor} % 
                         </span>
                         <span class="resultado col s6">
-                            R$ {this.state.valorRecebedor}
+                            R$ {valorRecebedorTotal}
                         </span>
                     </div>
                 </div>

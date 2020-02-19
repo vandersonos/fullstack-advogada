@@ -12,7 +12,7 @@ class CustosColetivos extends React.Component{
         this.state = {
             // "DataSource" é uma fonte de dados global
             lista: lista,
-            total: 0
+            total: this.props.totalColetivo
         };
     }
     componentDidMount() {
@@ -32,12 +32,13 @@ class CustosColetivos extends React.Component{
         let lista = this.state.lista;
         let o = {
             id: "cc_"+lista.length+1,
-            item: $('#item-despesa').val(),
-            valor: parseInt($('#item-valor').val())
+            item: $('#cc_item-despesa').val(),
+            valor: parseInt($('#cc_item-valor').val())
         }
         lista.push(o)
         let valor = parseInt(this.state.total) + o.valor
         this.setState({lista: lista, total: valor})
+        this.props.onTotalColetivoChange(valor);
     }
     render(){
         let itens = [];
@@ -55,14 +56,15 @@ class CustosColetivos extends React.Component{
             );
         }
         return (
-            <div >
+            <div  className="card-panel">
                 <div class="row">
+                    <div className='col'><h5>Gastos coletivos dos moradores da residência</h5></div>
                     <div class="input-field col s6">
-                        <input placeholder="" id="item-despesa" type="text" class="validate"/>
+                        <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
                         <label for="item-despesa">Descricão</label>
                     </div>
                     <div class="input-field col s4">
-                        <input id="item-valor" type="number" class="validate"/>
+                        <input id="cc_item-valor" type="number" class="validate"/>
                         <label for="item-valor">Valor</label>
                        
                     </div>
