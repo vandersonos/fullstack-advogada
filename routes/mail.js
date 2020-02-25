@@ -11,7 +11,7 @@ router.post('/send', function(req, res, next) {
     var aws = require('aws-sdk');
 
     // Provide the full path to your config.json file. 
-    aws.config.loadFromPath("/workspace/fullstack-advogada/routes/config.json");
+    aws.config.loadFromPath("routes/config.json");
 
     // Replace sender@example.com with your "From" address.
     // This address must be verified with Amazon SES.
