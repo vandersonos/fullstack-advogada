@@ -19,15 +19,15 @@ class TotalPensao extends React.Component{
         return (
             <div className="card-panel">
                 <div class='row'>
-                    <div class='col s12 m5'>
+                    <div class='col s12 m12 l12'>
                         <b>Valor estimado da pensão</b>
                     </div>
-                    <div class='col s12 m5'>
+                    <div class='col s8 m8 l10 '>
                         <p class="resultado">
                                 R$ {valor.toFixed(2).replace('.',',')} 
                             </p>
                     </div>
-                    <div class="col s12 m2">
+                    <div class="col s4 m4 l2">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.imprimir} ><i class="material-icons">print</i></a>
                     </div>
                 </div>

@@ -58,7 +58,9 @@ class Proporcionalidade extends React.Component{
         return (
             <div className="card-panel">
                 <div class='row '>
-                    <div className='col s12 m12'><h5>Proporcionalidade</h5></div>
+                    <div className='col s12'><h5>Proporcionalidade</h5></div>
+                </div>
+                <div class='row '> 
                     <div class="col s12 m6">
                         <div class="input-field col s12">
                             <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} class="validate"/>

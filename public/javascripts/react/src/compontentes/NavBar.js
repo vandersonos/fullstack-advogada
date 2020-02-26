@@ -2,6 +2,7 @@ import React from 'react';
 import M from "materialize-css";
 import $ from 'jquery';
 
+
 class Navbar extends React.Component{
     componentDidMount() {
         M.AutoInit();

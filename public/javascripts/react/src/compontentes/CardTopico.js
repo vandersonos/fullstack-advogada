@@ -1,10 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 class CardTopico extends React.Component{
     render(){
         let itens = [];
         for (const [key,value] of this.props.itens.entries()) {
             itens.push(<li key={key} className='collection-item'>{value}</li>);
         }
+        let links = [];
+        if(this.props.links){
+            for(const [key, value] of this.props.links.entries()){
+                links.push(<Link  key={key} to={value.url}>{value.title}</Link>)
+            }
+        }
+        
         let paragrafo = (
             <div className="col s12 m7 l7 xl6 offset-xl1 ">
                 <h4  className="header">{this.props.titulo}</h4>
@@ -25,11 +33,13 @@ class CardTopico extends React.Component{
                             <div className="row card-topico-conteudo">
                             {imagem}
                             {paragrafo}
+                            {links}
                             </div>
                         }
                          { this.props.alinhamento !== 'left' &&
                             <div className="row card-topico-conteudo">
                             {paragrafo}
+                            {links}
                             {imagem}
                             </div>
                         }

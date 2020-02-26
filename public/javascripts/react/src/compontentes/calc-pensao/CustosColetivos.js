@@ -41,11 +41,15 @@ class CustosColetivos extends React.Component{
         let nr_pessoas = $('#cc_nr_pessoas').val()
         if(!nr_pessoas){
             nr_pessoas = 1
+            $('#cc_nr_pessoas').val(1)
         }
         let o = {
             id: "cc_"+lista.length+1,
             item: $('#cc_item-despesa').val(),
             valor: parseInt($('#cc_item-valor').val())
+        }
+         if(!o.item || !o.valor){
+            return;
         }
         lista.push(o)
         $('#cc_item-despesa').val('');
@@ -76,22 +80,30 @@ class CustosColetivos extends React.Component{
             <div  className="card-panel">
                 <div class="row">
                     <div className='col'><h5>Gastos coletivos dos moradores da residência</h5></div>
+                    <div className='col'>
+                    <ul class="collapsible">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+    </li>
+
+  </ul></div> 
                 </div>
                 <div class="row"> 
                     <div class="input-field col s12">
                         <input placeholder="" id="cc_nr_pessoas" type="text" class="validate"/>
                         <label for="nr_pessoas">Quantas pessoas moram na residência?</label>
                     </div>
-                    <div class="input-field col s6 forms-table">
+                    <div class="input-field col s12 forms-table">
                         <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
                         <label for="item-despesa">Descricão da despesa</label>
                     </div>
-                    <div class="input-field col s4 forms-table">
+                    <div class="input-field col s8 m4 l10 forms-table">
                         <input id="cc_item-valor" type="number" class="validate"/>
                         <label for="item-valor">Valor da despesa</label>
                        
                     </div>
-                    <div class="input-field col s2 forms-table">
+                    <div class="input-field col s4 m4 l2 forms-table">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
                     </div>
                 </div>
@@ -110,8 +122,7 @@ class CustosColetivos extends React.Component{
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td>Total Gasto Individuais do Beneficiado</td>
-                                <td></td>
+                                <td colspan='2'>Total Gasto Individuais do Beneficiado</td>
                                 <td>R$ {total.toFixed(2).replace('.', ',')}</td>
                                 
                             </tr>

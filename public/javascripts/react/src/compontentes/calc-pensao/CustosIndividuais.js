@@ -44,6 +44,9 @@ class CustosIndividuais extends React.Component{
         }
         $('#item-despesa').val('');
         $('#item-valor').val('');
+        if(!o.item || !o.valor){
+            return;
+        }
         lista.push(o)
         let valor = parseFloat(this.state.total) + o.valor
         this.setState({lista: lista, total: valor.toFixed(2).replace('.',',')})
@@ -70,16 +73,16 @@ class CustosIndividuais extends React.Component{
             <div className="card-panel">
                 <div className='row'><h5>Gastos individuais do beneficiado</h5></div>
                 <div class="row forms-table">
-                    <div class="input-field col s6">
+                    <div class="input-field col s12 m12 l6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>
                         <label for="item-despesa">Descricão da despesa</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col s8 m10 l4">
                         <input id="item-valor" type="number" class="validate"/>
                         <label for="item-valor">Valor da despesa</label>
                     
                     </div>
-                    <div class="input-field col s2">
+                    <div class="input-field col s4 m2 l2">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
                     </div>
                 </div>
@@ -99,8 +102,7 @@ class CustosIndividuais extends React.Component{
                         <tfoot>
                             <tr>
                                 
-                                <td>Total Gasto Individuais</td>
-                                <td></td>
+                                <td colspan='2'>Total Gasto Individuais</td>
                                 <td>R$ {this.state.total}</td> 
                             </tr>
                         </tfoot>
