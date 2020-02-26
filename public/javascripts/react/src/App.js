@@ -54,7 +54,7 @@ function App() {
     <div className="App ">
         <Navbar artigos={artigos}/>
         <div className='container row'>
-            <CardCartaoVisita id='sobre' />
+            {/* <CardCartaoVisita id='sobre' /> */}
             <CalculadoraPensao/>
         </div>
     </div>

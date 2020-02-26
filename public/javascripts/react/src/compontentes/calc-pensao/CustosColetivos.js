@@ -39,6 +39,9 @@ class CustosColetivos extends React.Component{
     addItem(){
         let lista = this.state.lista;
         let nr_pessoas = $('#cc_nr_pessoas').val()
+        if(!nr_pessoas){
+            nr_pessoas = 1
+        }
         let o = {
             id: "cc_"+lista.length+1,
             item: $('#cc_item-despesa').val(),
@@ -48,16 +51,18 @@ class CustosColetivos extends React.Component{
         $('#cc_item-despesa').val('');
         $('#cc_item-valor').val('');
         let valor = parseFloat(this.state.total) + (o.valor/nr_pessoas)
+        valor = valor.toFixed(2).replace('.',',')
         this.setState({lista: lista, total: valor, nr_pessoas:nr_pessoas})
         this.props.onTotalColetivoChange(valor);
     }
     render(){
         let itens = [];
         for (const [index, value] of this.state.lista.entries()) {
+            let valor = value.valor
             itens.push(
                 <tr data-key={value.id}>
                     <td>{value.item}</td>
-                    <td>{value.valor}</td>
+                    <td>{valor.toFixed(2).replace('.',',')}</td>
                     <td>
                         <a class="btn-floating btn-small waves-effect waves-light red" onClick={this.rmItem}>
                         <i id={value.id} class="material-icons">remove</i>
@@ -66,24 +71,27 @@ class CustosColetivos extends React.Component{
                 </tr>
             );
         }
+        let total = parseFloat(this.state.total)
         return (
             <div  className="card-panel">
                 <div class="row">
                     <div className='col'><h5>Gastos coletivos dos moradores da residência</h5></div>
+                </div>
+                <div class="row"> 
                     <div class="input-field col s12">
                         <input placeholder="" id="cc_nr_pessoas" type="text" class="validate"/>
                         <label for="nr_pessoas">Quantas pessoas moram na residência?</label>
                     </div>
-                    <div class="input-field col s6">
+                    <div class="input-field col s6 forms-table">
                         <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Descricão</label>
+                        <label for="item-despesa">Descricão da despesa</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col s4 forms-table">
                         <input id="cc_item-valor" type="number" class="validate"/>
-                        <label for="item-valor">Valor</label>
+                        <label for="item-valor">Valor da despesa</label>
                        
                     </div>
-                    <div class="input-field col s2">
+                    <div class="input-field col s2 forms-table">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
                     </div>
                 </div>
@@ -91,7 +99,7 @@ class CustosColetivos extends React.Component{
                    <table class='responsive-table highlight'>
                         <thead>
                         <tr>
-                            <th>Item</th>
+                            <th>Despesa</th>
                             <th>Valor</th>
                             <th></th>
                         </tr>
@@ -100,15 +108,16 @@ class CustosColetivos extends React.Component{
                         <tbody id='table-custos-individuais'>
                         {itens}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>Total Gasto Individuais do Beneficiado</td>
+                                <td></td>
+                                <td>R$ {total.toFixed(2).replace('.', ',')}</td>
+                                
+                            </tr>
+                        </tfoot>
                     </table>
-                    <tfoot>
-                        <tr>
-                            
-                            <th scope="row">Total Gasto Individuais</th>
-                            <td>{this.state.total}</td>
-                            <th></th>
-                        </tr>
-                    </tfoot>
+
                 </div>
             </div>
         )

@@ -1,0 +1,15 @@
+@media print{
+        .forms-table{
+            display: none !important;
+        }
+        nav{
+            display: none !important;
+        }
+
+        .btn-floating {
+            display: none !important; 
+        }
+}
+ .paragrafo-resultado{
+     padding: 1em;
+ }

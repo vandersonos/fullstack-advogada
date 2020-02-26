@@ -46,17 +46,18 @@ class CustosIndividuais extends React.Component{
         $('#item-valor').val('');
         lista.push(o)
         let valor = parseFloat(this.state.total) + o.valor
-        this.setState({lista: lista, total: valor.toFixed(2)})
+        this.setState({lista: lista, total: valor.toFixed(2).replace('.',',')})
         this.props.onTotalIndividualChange(valor);
     }
     
     render(){
         let itens = [];
         for (const [index, value] of this.state.lista.entries()) {
+            let valor = value.valor
             itens.push(
                 <tr data-key={value.id}>
                     <td>{value.item}</td>
-                    <td>{value.valor}</td>
+                    <td>{valor.toFixed(2).replace('.',',')}</td>
                     <td>
                         <a class="btn-floating btn-small waves-effect waves-light red" onClick={this.rmItem}>
                         <i id={value.id} class="material-icons">remove</i>
@@ -68,14 +69,14 @@ class CustosIndividuais extends React.Component{
         return (
             <div className="card-panel">
                 <div className='row'><h5>Gastos individuais do beneficiado</h5></div>
-                <div class="row">
+                <div class="row forms-table">
                     <div class="input-field col s6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Descricão</label>
+                        <label for="item-despesa">Descricão da despesa</label>
                     </div>
                     <div class="input-field col s4">
                         <input id="item-valor" type="number" class="validate"/>
-                        <label for="item-valor">Valor</label>
+                        <label for="item-valor">Valor da despesa</label>
                     
                     </div>
                     <div class="input-field col s2">
@@ -86,7 +87,7 @@ class CustosIndividuais extends React.Component{
                    <table class='responsive-table highlight'>
                         <thead>
                         <tr>
-                            <th>Item</th>
+                            <th>Despesa</th>
                             <th>Valor</th>
                             <th></th>
                         </tr>
@@ -95,15 +96,16 @@ class CustosIndividuais extends React.Component{
                         <tbody id='table-custos-individuais'>
                         {itens}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                
+                                <td>Total Gasto Individuais</td>
+                                <td></td>
+                                <td>R$ {this.state.total}</td> 
+                            </tr>
+                        </tfoot>
                     </table>
-                    <tfoot>
-                        <tr>
-                            
-                            <th scope="row">Total Gasto Individuais</th>
-                            <td>{this.state.total}</td>
-                            <th></th>
-                        </tr>
-                    </tfoot>
+
                 </div>
             </div>
         )

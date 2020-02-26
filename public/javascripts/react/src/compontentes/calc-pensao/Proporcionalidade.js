@@ -24,31 +24,36 @@ class Proporcionalidade extends React.Component{
         M.AutoInit();
     }
      calculaValor(){
-        let lista = this.state.lista;
         let valorPagador = parseFloat($('#p-renda-pagar').val())
         let valorRecebedor = parseFloat($('#p-renda-receber').val())
-
+        if(!valorPagador){
+            return
+        }
+        let perc_pagador = 100
+        let perc_recebedor = 0
         let total = valorRecebedor + valorPagador;
-        let perc_pagador = parseFloat((valorPagador * 100)/total)
+        if(valorRecebedor){
+            perc_pagador = parseFloat((valorPagador * 100)/total)
+            perc_recebedor = parseFloat((valorRecebedor * 100)/total)
+        }
         this.setState({
             rendaPagador:valorPagador,
             rendaBeneficiado:valorRecebedor,
             valorTotal : total,
             perc_pagador:perc_pagador,
-            perc_recebedor: parseFloat((valorRecebedor * 100)/total)
+            perc_recebedor: perc_recebedor
         })
         this.props.onTotalPensaoChange((parseFloat(this.props.custoTotal)*(perc_pagador/100)));
-        console.log(this.state,'this.state',this.state.custoTotal)
     }
-    render(){
-        console.log(this.props.custoTotal, 'total proporcional',this.state.custoTotal)
-        
-        let valorTotal = this.state.valorTotal
+    render(){        
         let perc_pagador = this.state.perc_pagador;
         let perc_recebedor = this.state.perc_recebedor;
         
-        let valorPagadorTotal = (parseFloat(this.props.custoTotal)*(perc_pagador/100))
-        let valorRecebedorTotal  = (parseFloat(this.props.custoTotal)*(perc_recebedor/100))
+        let valorPagadorTotal = (parseFloat(this.props.custoTotal)*(perc_pagador/100)).toFixed(2).replace('.',',')
+        let valorRecebedorTotal  = (parseFloat(this.props.custoTotal)*(perc_recebedor/100)).toFixed(2).replace('.',',')
+
+        perc_pagador = perc_pagador.toFixed(2).replace('.',',')
+        perc_recebedor = perc_recebedor.toFixed(2).replace('.',',')
         
         return (
             <div className="card-panel">
@@ -57,34 +62,40 @@ class Proporcionalidade extends React.Component{
                     <div class="col s12 m6">
                         <div class="input-field col s12">
                             <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} class="validate"/>
-                            <label for="p-renda-pagar">Renda da pessoal que vai pagar</label>
+                            <label for="p-renda-pagar">Renda da pessoa que vai pagar (R$)</label>
                         </div>
                     </div>
                     <div class="col s12 m6">
                         <div class="input-field col s12">
                         <input placeholder="" id="p-renda-receber" type="number" onChange={this.calculaValor}  class="validate"/>
-                            <label for="p-renda-receber">Renda da pessoal que vai receber</label>
+                            <label for="p-renda-receber">Renda da pessoa que vai receber (R$)</label>
                         </div>
                     </div>
                 </div>
                 <div class='row'>
                     <div class="col s12 m6">
-                        Porcentagem de responsabilidade pagador
-                        <span class="resultado col s6">
-                            {perc_pagador} %
-                        </span>
-                        <span class="resultado col s6">
-                            R$ {valorPagadorTotal} 
-                        </span>
+                        <h7>Porcentagem de responsabilidade pagador</h7>
+                        <p className='paragrafo-resultado'>
+                            <span class="resultado col s6">
+                                {perc_pagador} %
+                            </span>
+                            <span class="resultado col s6">
+                                R$ {valorPagadorTotal} 
+                            </span>
+                        </p>
+                        
                     </div>
                     <div class="col s12 m6">
-                        Porcentagem de responsabilidade recebedor
-                        <span class="resultado col s6">
-                            {perc_recebedor} % 
-                        </span>
-                        <span class="resultado col s6">
-                            R$ {valorRecebedorTotal}
-                        </span>
+                        <h7>Porcentagem de responsabilidade beneficiado</h7>
+                        <p className='paragrafo-resultado'>
+                            <span class="resultado col s6">
+                                {perc_recebedor} % 
+                            </span>
+                            <span class="resultado col s6">
+                                R$ {valorRecebedorTotal}
+                            </span>
+                        </p>
+                        
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import React from 'react';
 import M from "materialize-css";
 import $ from 'jquery';
+import './CalculadoraPensao.css';
 import CustosIndividuais from './CustosIndividuais.js';
 import CustosColetivos from './CustosColetivos.js';
 import Proporcionalidade from './Proporcionalidade.js';
@@ -19,12 +20,12 @@ class CalculadoraPensao extends React.Component{
     }
 
     handleTotalIndividualChange(valor) {
-        this.setState({totalIndividual:valor, custoTotal: valor+this.state.totalColetivo});
+        this.setState({totalIndividual:valor, custoTotal: parseFloat(valor)+parseFloat(this.state.totalColetivo)});
         
     }
 
     handleTotalColetivoChange(valor) {
-        this.setState({totalColetivo: valor, custoTotal: this.state.totalIndividual+valor});
+        this.setState({totalColetivo: valor, custoTotal: parseFloat(this.state.totalIndividual)+parseFloat(valor)});
         
     }
     handleTotalPensaoChange(valor){
@@ -36,20 +37,25 @@ class CalculadoraPensao extends React.Component{
         M.AutoInit();
     }
     render(){
+        let total = parseFloat(this.state.totalPensao)
+        let custoTotal = parseFloat(this.state.custoTotal)
         return (
             <div className="col s12 m12 l12 ">
+                <div className="card-panel">
+                    <h5>Estimativa de valor da pensão de alimentícia</h5>
+                </div>
                 <CustosIndividuais lista={[]} totalIndividual={this.state.totalIndividual}  onTotalIndividualChange={this.handleTotalIndividualChange}/>
                 <hr/>
                 <CustosColetivos lista={[]} totalColetivo={this.state.totalColetivo} onTotalColetivoChange={this.handleTotalColetivoChange}/>
                 <hr/>
                 <div className="card-panel">
                     <div class='row'>
-                        <div class='col s12 m6'>
+                        <div class='col s12 m8 l10'>
                             <b>Total do custo</b>
                         </div>
-                        <div class='col s12 m6'>
+                        <div class='col s12 m4 l2'>
                             <span class="resultado">
-                                R$ {this.state.custoTotal} 
+                                R$ {custoTotal.toFixed(2).replace('.',',')} 
                             </span>
                         </div>
                     </div>
@@ -58,7 +64,7 @@ class CalculadoraPensao extends React.Component{
                 <Proporcionalidade custoTotal={this.state.custoTotal}  onTotalPensaoChange={this.handleTotalPensaoChange}/>
                 
                 <hr/>
-                <TotalPensao valor={this.state.totalPensao}/>
+                <TotalPensao valor={total.toFixed(2).replace('.',',')}/>
    
             </div>
         )
