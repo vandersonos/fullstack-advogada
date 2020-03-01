@@ -12,7 +12,7 @@ class CustosIndividuais extends React.Component{
         this.state = {
             // "DataSource" é uma fonte de dados global
             lista: lista,
-            total: 0,
+            total: this.props.totalIndividual,
             nr_moradores:1
         };
     }
@@ -22,31 +22,45 @@ class CustosIndividuais extends React.Component{
     }
     rmItem(e){
         let lista = this.state.lista;
-        let id = parseInt($(e.target).prop('id'))
+        let id = $(e.target).prop('id')
         lista = lista.filter( function(item){ 
             
             return item.id !== id
         })
-        this.setState({lista: lista})
+        
+        let valor = lista.reduce((acumulador, i)=>{
+            return acumulador + i.valor;
+        },0)
+        console.log(valor,'valor', lista)
+        this.setState({lista: lista, total: valor.toFixed(2)})
+        this.props.onTotalIndividualChange(valor);
     }
       addItem(){
         let lista = this.state.lista;
         let o = {
-            id: "cc_"+lista.length+1,
+            id: "ci_"+(lista.length+1),
             item: $('#item-despesa').val(),
-            valor: parseInt($('#item-valor').val())
+            valor: parseFloat($('#item-valor').val())
+        }
+        $('#item-despesa').val('');
+        $('#item-valor').val('');
+        if(!o.item || !o.valor){
+            return;
         }
         lista.push(o)
         let valor = parseFloat(this.state.total) + o.valor
-        this.setState({lista: lista, total: valor.toFixed(2)})
+        this.setState({lista: lista, total: valor.toFixed(2).replace('.',',')})
+        this.props.onTotalIndividualChange(valor);
     }
+    
     render(){
         let itens = [];
         for (const [index, value] of this.state.lista.entries()) {
+            let valor = value.valor
             itens.push(
                 <tr data-key={value.id}>
                     <td>{value.item}</td>
-                    <td>{value.valor}</td>
+                    <td>{valor.toFixed(2).replace('.',',')}</td>
                     <td>
                         <a class="btn-floating btn-small waves-effect waves-light red" onClick={this.rmItem}>
                         <i id={value.id} class="material-icons">remove</i>
@@ -56,18 +70,34 @@ class CustosIndividuais extends React.Component{
             );
         }
         return (
-            <div >
-                <div class="row">
-                    <div class="input-field col s6">
+            <div className="card-panel">
+                <div id="modal-help-gindividual" class="modal">
+                    <div class="modal-content">
+                    <h6>Gastos individuais</h6>
+                    <p>Aqui você deve discriminar somente os gastos individuais do beneficiado, como por exemplo: Educação, saúde, alimentos, vestuário, lazer entre outros.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect btn-small">ok</a>
+                    </div>
+                </div>
+                <div className='row'>
+                    <h6>Gastos individuais do beneficiado 
+                        <a class="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gindividual">
+                            <i class="material-icons">info</i>
+                        </a>
+                    </h6>
+                </div>
+                <div class="row forms-table">
+                    <div class="input-field col s12 m12 l6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Descricão</label>
+                        <label for="item-despesa">Discrição da despesa</label>
                     </div>
-                    <div class="input-field col s4">
+                    <div class="input-field col s8 m10 l4">
                         <input id="item-valor" type="number" class="validate"/>
-                        <label for="item-valor">Valor</label>
-                       
+                        <label for="item-valor">Valor da despesa</label>
+                    
                     </div>
-                    <div class="input-field col s2">
+                    <div class="input-field col s4 m2 l2">
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
                     </div>
                 </div>
@@ -75,7 +105,7 @@ class CustosIndividuais extends React.Component{
                    <table class='responsive-table highlight'>
                         <thead>
                         <tr>
-                            <th>Item</th>
+                            <th>Despesa</th>
                             <th>Valor</th>
                             <th></th>
                         </tr>
@@ -84,15 +114,15 @@ class CustosIndividuais extends React.Component{
                         <tbody id='table-custos-individuais'>
                         {itens}
                         </tbody>
+                        <tfoot>
+                            <tr>
+                                
+                                <td colspan='2'>Total Gasto Individuais</td>
+                                <td>R$ {this.state.total}</td> 
+                            </tr>
+                        </tfoot>
                     </table>
-                    <tfoot>
-                        <tr>
-                            
-                            <th scope="row">Total Gasto Individuais</th>
-                            <td>{this.state.total}</td>
-                            <th></th>
-                        </tr>
-                    </tfoot>
+
                 </div>
             </div>
         )

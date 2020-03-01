@@ -1,0 +1,33 @@
+@media print{
+        .forms-table{
+            display: none !important;
+        }
+        nav{
+            display: none !important;
+        }
+
+        .btn-floating {
+            display: none !important; 
+        }
+}
+ .paragrafo-resultado{
+     padding: 1em;
+ }
+ .resultado {
+    padding: 1em;
+}
+.btn-help{
+    height: 24.4px!important;
+    line-height: 24.4px!important;
+    font-size: 8px!important;
+    width: 28px!important;
+    padding-left: 5px!important;
+    margin-right: 10px!important;
+    margin-left: 10px!important;
+}
+.modal-content > p{
+    text-align: justify;
+}
+.modal-footer{
+    text-align: center!important;
+}

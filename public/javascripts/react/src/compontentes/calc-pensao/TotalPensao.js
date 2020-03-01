@@ -5,29 +5,36 @@ import $ from 'jquery';
 class TotalPensao extends React.Component{
     constructor(props) {
         super(props);
- 
-        this.state = {
-            // "DataSource" é uma fonte de dados global
-            custoTotal: props.valor
-        };
-
+        this.imprimir = this.imprimir.bind(this);
     }
     componentDidMount() {
-        this.nrItens = 0
         M.AutoInit();
+    }
+    imprimir(){
+        window.print()
     }
 
     render(){
+        let valor = parseFloat(this.props.valor)
+        let data = new Date();
+
         return (
-            <div class='row'>
-                <div class='col s12 m6'>
-                    <b>Valor estimado da pensão</b>
+            <div className="card-panel">
+                <div class='row'>
+                    <div class='col s12 m12 l12'>
+                        <b>Valor estimado da pensão</b>
+                    </div>
+                    <div class='col s8 m8 l10 '>
+                        <p class="resultado">
+                                R$ {valor.toFixed(2).replace('.',',')} 
+                            </p>
+                    </div>
+                    <div class="col s4 m4 l2">
+                        <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.imprimir} ><i class="material-icons">print</i></a>
+                    </div>
                 </div>
-                <div class='col s12 m6'>
-                <span class="resultado">
-                            R$ {this.state.valor} 
-                        </span>
-                </div>
+                <div class='row'> Estimativa calculada em: {data.getDate()}/{data.getMonth()}/{data.getFullYear()}</div>
+                <div class='row'><p> * A utilização dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
             </div>
         )
        
