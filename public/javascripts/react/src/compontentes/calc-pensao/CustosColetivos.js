@@ -78,16 +78,27 @@ class CustosColetivos extends React.Component{
         let total = parseFloat(this.state.total)
         return (
             <div  className="card-panel">
+                <div id="modal-help-gcoletivo" class="modal">
+                    <div class="modal-content">
+                    <h6>Gastos coletivos</h6>
+                    <p>
+                        Aqui você vai discriminar somente os gastos coletivos de todas as pessoas da moradia, por exemplo: Aluguel, luz, água, etc.
+                        <br></br>
+                        Estes gastos são divididos pelo número de moradores da casa, para o calculo do valor proporcional de cada morador e por consequencia o gasto individual do beneficiado.
+                    </p>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect  btn-small">ok</a>
+                    </div>
+                </div>
                 <div class="row">
-                    <div className='col'><h5>Gastos coletivos dos moradores da residência</h5></div>
                     <div className='col'>
-                    <ul class="collapsible">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-
-  </ul></div> 
+                        <h6>Gastos coletivos dos moradores da residência
+                            <a class="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gcoletivo">
+                                <i class="material-icons">info</i>
+                            </a>
+                        </h6>
+                    </div>
                 </div>
                 <div class="row"> 
                     <div class="input-field col s12">

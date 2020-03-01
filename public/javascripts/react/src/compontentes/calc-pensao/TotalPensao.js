@@ -16,6 +16,8 @@ class TotalPensao extends React.Component{
 
     render(){
         let valor = parseFloat(this.props.valor)
+        let data = new Date();
+
         return (
             <div className="card-panel">
                 <div class='row'>
@@ -31,6 +33,8 @@ class TotalPensao extends React.Component{
                         <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.imprimir} ><i class="material-icons">print</i></a>
                     </div>
                 </div>
+                <div class='row'> Estimativa calculada em: {data.getDate()}/{data.getMonth()}/{data.getFullYear()}</div>
+                <div class='row'><p> * A utilizacão dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
             </div>
         )
        

@@ -71,7 +71,22 @@ class CustosIndividuais extends React.Component{
         }
         return (
             <div className="card-panel">
-                <div className='row'><h5>Gastos individuais do beneficiado</h5></div>
+                <div id="modal-help-gindividual" class="modal">
+                    <div class="modal-content">
+                    <h6>Gastos individuais</h6>
+                    <p>Aqui você dev discriminar somente os gastos individuais do beneficiado, como por exemplo: Educação, saúde, alimentos, vestuário, lazer entre outros.</p>
+                    </div>
+                    <div class="modal-footer">
+                    <a href="#!" class="modal-close waves-effect btn-small">ok</a>
+                    </div>
+                </div>
+                <div className='row'>
+                    <h6>Gastos individuais do beneficiado 
+                        <a class="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gindividual">
+                            <i class="material-icons">info</i>
+                        </a>
+                    </h6>
+                </div>
                 <div class="row forms-table">
                     <div class="input-field col s12 m12 l6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>

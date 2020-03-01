@@ -9,14 +9,18 @@ class CardTopico extends React.Component{
         let links = [];
         if(this.props.links){        
             for(const [key, value] of this.props.links.entries()){
-                links.push(<Link key={key} to={value.url}>{value.title}</Link>)
+                links.push(
+                    <li key={key} className='collection-item'>
+                        <Link className="waves-effect waves-light btn" key={key} to={value.url}><i class="small material-icons left">keyboard</i>{value.title}</Link>
+                    </li>
+                )
             }
         }
         
         let paragrafo = (
             <div className="col s12 m7 l7 xl6 offset-xl1 ">
                 <h4  className="header">{this.props.titulo}</h4>
-                <ul className='collection'>{itens}</ul>
+                <ul className='collection'>{itens}{links}</ul>
             </div>
         );
         let imagem = (
@@ -33,13 +37,11 @@ class CardTopico extends React.Component{
                             <div className="row card-topico-conteudo">
                             {imagem}
                             {paragrafo}
-                            {links}
                             </div>
                         }
                          { this.props.alinhamento !== 'left' &&
                             <div className="row card-topico-conteudo">
                             {paragrafo}
-                            {links}
                             {imagem}
                             </div>
                         }

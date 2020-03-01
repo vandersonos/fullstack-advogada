@@ -6,6 +6,8 @@ import CustosIndividuais from './CustosIndividuais.js';
 import CustosColetivos from './CustosColetivos.js';
 import Proporcionalidade from './Proporcionalidade.js';
 import TotalPensao from './TotalPensao.js';
+import Navbar from '../NavBar.js';
+import Artigos from '../CollArtigos.js';
 
 class CalculadoraPensao extends React.Component{
     constructor(props) {
@@ -38,11 +40,13 @@ class CalculadoraPensao extends React.Component{
         let custoTotal = parseFloat(this.state.custoTotal)
         console.log(this.props)
         return (
+            <div className="container-calculadora">
+                <Navbar artigos={Artigos}/>
                 <div className='container row calculadora'>
                     <div className="col s12 m12 l12 ">
                         <div className="card-panel">
-                            <h5>Estimativa de valor da pensão de alimentícia</h5>
-                            <p>Os valores calculados abaixo são apenas uma estimativa de valores, o valor final depende de outras váriaveis como condição familiar de ambas as partes, problemas de sáude e avaliação do juiz.</p>
+                            <h6>Estimativa de valor da pensão de alimentícia</h6>
+                            <p>Os valores calculados abaixo são apenas uma estimativa, o valor acertado será defindo em audiência.</p>
                         </div>
                         <CustosIndividuais lista={[]} totalIndividual={this.state.totalIndividual}  onTotalIndividualChange={this.handleTotalIndividualChange}/>
                         <hr/>
@@ -51,12 +55,13 @@ class CalculadoraPensao extends React.Component{
                         <div className="card-panel">
                             <div class='row'>
                                 <div class='col s12 m8 l10'>
-                                    <b>Total do custo</b>
+                                    <h6>Total do custo</h6>
+                                    <h6><small> Custo Individual + (Custo Coletivo / Moradores)</small></h6>
                                 </div>
                                 <div class='col s12 m4 l2'>
-                                    <span class="resultado">
+                                    <div class="resultado">
                                         R$ {custoTotal.toFixed(2).replace('.',',')} 
-                                    </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -68,6 +73,7 @@ class CalculadoraPensao extends React.Component{
         
                     </div>
                 </div>
+            </div>
         )
        
     }
