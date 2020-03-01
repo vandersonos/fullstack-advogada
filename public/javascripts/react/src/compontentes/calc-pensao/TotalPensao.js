@@ -34,7 +34,7 @@ class TotalPensao extends React.Component{
                     </div>
                 </div>
                 <div class='row'> Estimativa calculada em: {data.getDate()}/{data.getMonth()}/{data.getFullYear()}</div>
-                <div class='row'><p> * A utilizacão dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
+                <div class='row'><p> * A utilização dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
             </div>
         )
        

@@ -59,7 +59,7 @@ class Proporcionalidade extends React.Component{
                     <div class="modal-content">
                     <h6>Proporcionalidade</h6>
                     <p>
-                        Aqui você vai discriminar a renda dos responsaveis pelo beneficiado, para fins de caculo de proporcionalidade, pois o gasto total deve ser dividido de forma proporcional por ambas as partes responsáveis.
+                        Aqui você vai discriminar a renda dos responsaveis pelo beneficiado, para fins de caculo de proporcionalidade, pois o gasto total deve ser dividido de forma proporcional por ambas as partes responsáveis. Ou seja, o responsável que ganha mais deve colaborar mais nos gastos do beneficiado.
                     </p>
                     </div>
                     <div class="modal-footer">

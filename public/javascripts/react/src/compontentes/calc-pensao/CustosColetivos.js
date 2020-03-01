@@ -84,7 +84,7 @@ class CustosColetivos extends React.Component{
                     <p>
                         Aqui você vai discriminar somente os gastos coletivos de todas as pessoas da moradia, por exemplo: Aluguel, luz, água, etc.
                         <br></br>
-                        Estes gastos são divididos pelo número de moradores da casa, para o calculo do valor proporcional de cada morador e por consequencia o gasto individual do beneficiado.
+                        Estes gastos são divididos pelo número de moradores da casa, para o cálculo do valor proporcional de cada morador e por consequência o gasto individual do beneficiado.
                     </p>
                     </div>
                     <div class="modal-footer">
@@ -107,7 +107,7 @@ class CustosColetivos extends React.Component{
                     </div>
                     <div class="input-field col s12 forms-table">
                         <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Descricão da despesa</label>
+                        <label for="item-despesa">Discrição da despesa</label>
                     </div>
                     <div class="input-field col s8 m4 l10 forms-table">
                         <input id="cc_item-valor" type="number" class="validate"/>
@@ -133,7 +133,7 @@ class CustosColetivos extends React.Component{
                         </tbody>
                         <tfoot>
                             <tr>
-                                <td colspan='2'>Total Gasto Individuais do Beneficiado</td>
+                                <td colspan='2'>Total Gastos Individuais do Beneficiado</td>
                                 <td>R$ {total.toFixed(2).replace('.', ',')}</td>
                                 
                             </tr>

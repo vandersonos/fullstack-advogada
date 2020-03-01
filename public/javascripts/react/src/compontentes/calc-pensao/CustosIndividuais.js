@@ -74,7 +74,7 @@ class CustosIndividuais extends React.Component{
                 <div id="modal-help-gindividual" class="modal">
                     <div class="modal-content">
                     <h6>Gastos individuais</h6>
-                    <p>Aqui você dev discriminar somente os gastos individuais do beneficiado, como por exemplo: Educação, saúde, alimentos, vestuário, lazer entre outros.</p>
+                    <p>Aqui você deve discriminar somente os gastos individuais do beneficiado, como por exemplo: Educação, saúde, alimentos, vestuário, lazer entre outros.</p>
                     </div>
                     <div class="modal-footer">
                     <a href="#!" class="modal-close waves-effect btn-small">ok</a>
@@ -90,7 +90,7 @@ class CustosIndividuais extends React.Component{
                 <div class="row forms-table">
                     <div class="input-field col s12 m12 l6">
                         <input placeholder="" id="item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Descricão da despesa</label>
+                        <label for="item-despesa">Discrição da despesa</label>
                     </div>
                     <div class="input-field col s8 m10 l4">
                         <input id="item-valor" type="number" class="validate"/>
