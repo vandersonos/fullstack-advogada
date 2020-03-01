@@ -23,14 +23,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public/javascripts/react/build/')));
-
+app.use('/mail', mailRouter);
 app.use(function(request, response){
   if(!request.secure){
     response.redirect("https://" + request.headers.host + request.url);
   }
 });
 app.use('/', indexRouter);
-app.use('/mail', mailRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
