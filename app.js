@@ -24,6 +24,11 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(express.static(path.join(__dirname, 'public/javascripts/react/build/')));
 
+app.use(function(request, response){
+  if(!request.secure){
+    response.redirect("https://" + request.headers.host + request.url);
+  }
+});
 app.use('/', indexRouter);
 app.use('/mail', mailRouter);
 

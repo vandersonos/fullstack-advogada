@@ -36,6 +36,7 @@ class CalculadoraPensao extends React.Component{
     render(){
         let total = parseFloat(this.state.totalPensao)
         let custoTotal = parseFloat(this.state.custoTotal)
+        console.log(this.props)
         return (
                 <div className='container row calculadora'>
                     <div className="col s12 m12 l12 ">

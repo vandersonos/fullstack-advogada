@@ -7,9 +7,9 @@ class CardTopico extends React.Component{
             itens.push(<li key={key} className='collection-item'>{value}</li>);
         }
         let links = [];
-        if(this.props.links){
+        if(this.props.links){        
             for(const [key, value] of this.props.links.entries()){
-                links.push(<Link  key={key} to={value.url}>{value.title}</Link>)
+                links.push(<Link key={key} to={value.url}>{value.title}</Link>)
             }
         }
         

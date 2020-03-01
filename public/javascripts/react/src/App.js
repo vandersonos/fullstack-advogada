@@ -50,7 +50,7 @@ function App() {
     ];
     let itens = [];
      for (let [key,value] of artigos.entries()) {
-        itens.push(<CardTopico key={key} id={value.id} alinhamento='left' titulo={value.titulo} texto={value.texto} img={value.img} itens={value.itens} links={value.links}/>);
+        itens.push(<CardTopico  artigos={artigos} key={key} id={value.id} alinhamento='left' titulo={value.titulo} texto={value.texto} img={value.img} itens={value.itens} links={value.links}/>);
     }
     return (
         <div className="App ">
