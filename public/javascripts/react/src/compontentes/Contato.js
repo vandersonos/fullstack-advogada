@@ -161,21 +161,21 @@ class Contato extends React.Component{
                                     <h5 className="valign-wrapper">Contato</h5>
                                 </div>
                                 <div className="input-field col s12">
-                                    <i className="material-icons prefix">account_circle</i>
+                                    <i className="material-icons prefix icone-verde">account_circle</i>
                                     <label htmlFor="nome">Nome</label>
                                     <input id="nome" type="text" className="validate"/>
                                     
                                 </div>
                                 
-                                <div className="input-field col s12"><i className="material-icons prefix">phone</i>
+                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">phone</i>
                                     <input id="telefone" type="tel" maxlength='14' className="validate" onBlur={(e)=> this.maskTelefone(e)}/>
                                     <label htmlFor="telefone">Telefone</label>
                                 </div>
-                                <div className="input-field col s12"><i className="material-icons prefix">mail</i>
+                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">mail</i>
                                     <input id="email" type="email" className="validate" />
                                     <label htmlFor="email">E-mail</label>
                                 </div>
-                                <div className="input-field col s12"><i className="material-icons prefix">question_answer</i>
+                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">question_answer</i>
                                     <textarea id="mensagem" className="materialize-textarea"></textarea>
                                     <label htmlFor="mensagem">Mensagem</label>
                                 </div>

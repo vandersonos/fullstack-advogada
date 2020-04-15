@@ -16,6 +16,13 @@
  .resultado {
     padding: 1em;
 }
+.logo-calculadora{
+    width: 30px;padding-left: 0.2rem;
+    background-color: var(--corpadraoAmareloForte)!important;
+    padding: 3px;
+    margin-top: 0.5rem;
+    border-radius: 2px;
+}
 .btn-help{
     height: 24.4px!important;
     line-height: 24.4px!important;
@@ -30,4 +37,7 @@
 }
 .modal-footer{
     text-align: center!important;
+}
+.row{
+    margin-bottom: 0px;
 }
