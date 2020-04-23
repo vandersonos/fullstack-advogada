@@ -32,7 +32,7 @@ class Navbar extends React.Component{
                         <ul className="left hide-on-med-and-down ">
                             <li><a onClick={this.escondeMenu} href="/"><i class="material-icons left">home</i>Início</a></li>
                             <li><a onClick={this.escondeMenu} href="/#sobre">Sobre</a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdownservicos">Serviços<i class="material-icons right">arrow_drop_down</i></a></li>
+                            <li><a class="" href="/feed-pagina-facebook" >Postagens<i class="material-icons right">arrow_drop_down</i></a></li>
                             <li><a class="dropdown-trigger" href="#!" data-target="dropdownferramentas">Ferramentas<i class="material-icons right">arrow_drop_down</i></a></li>
                             <li><a onClick={this.escondeMenu} href="/#contato">Contato</a></li>
                         </ul>
@@ -43,8 +43,8 @@ class Navbar extends React.Component{
                     <li><a onClick={this.escondeMenu} href="/#sobre">Sobre</a></li>
                      <li><a onClick={this.escondeMenu} href="/#contato">Contato</a></li>
                     <li><div class="divider"></div></li>
-                    <li><a class="subheader"><i class="material-icons">business_center</i>Serviços</a></li>
-                    {itens}
+                    
+                    <li><a onClick={this.escondeMenu} href="/feed-pagina-facebook">Postagens</a></li>
                     <li><div class="divider"></div></li>
                     <li><a class="subheader"><i class="material-icons">build</i>Ferramentas</a></li>
                     {itensferramentas}

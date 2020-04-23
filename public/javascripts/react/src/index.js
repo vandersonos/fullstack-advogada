@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import ComponenteDePagina404 from './ComponenteDePagina404.js';
 import CalculadoraPensao from './compontentes/calc-pensao/CalculadoraPensao.js';
+import FeedPaginaFacebook from './compontentes/pagina_facebook/FeedPaginaFacebook.js';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 
@@ -14,6 +15,7 @@ ReactDOM.render(
         <Switch>
             <Route path="/" exact={true} component={App} />
             <Route path="/calculadora-pensao-alimenticia" component={CalculadoraPensao} />
+            <Route path="/feed-pagina-facebook" component={FeedPaginaFacebook} />
             <Route path='*' component={ComponenteDePagina404} />
         </Switch>
     </ BrowserRouter>, 
