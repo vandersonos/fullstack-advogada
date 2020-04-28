@@ -21,8 +21,8 @@ class CardTopico extends React.Component{
             <div className="col s12 ">
                 <iframe 
                     src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Ftaianemartinscosta%2Fposts%2F925351317896073&width=500"
-                    width="500"
-                    height="595"
+                    width="100%"
+                    height="400px"
                     // style="border:none;overflow:hidden"
                     scrolling="no"
                     frameborder="0"
