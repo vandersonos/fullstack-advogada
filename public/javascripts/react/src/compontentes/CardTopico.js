@@ -4,43 +4,45 @@ class CardTopico extends React.Component{
     render(){
         let itens = [];
         for (const [key,value] of this.props.itens.entries()) {
-            itens.push(<li key={key} className='collection-item'>{value}</li>);
+            itens.push(<li key={key} className='list-group-item'>{value}</li>);
         }
         let links = [];
         if(this.props.links){        
             for(const [key, value] of this.props.links.entries()){
                 links.push(
-                    <li key={key} className='collection-item'>
-                        <Link className="waves-effect waves-light btn" key={key} to={value.url}><i class="small material-icons left">keyboard</i>{value.title}</Link>
+                    <li key={key} className='list-group-item'>
+                        <Link className="waves-effect waves-light" key={key} to={value.url}>
+                        <button type="button" class='btn btn-secondary btn-sm'>{value.title}</button>
+                        </Link>
                     </li>
                 )
             }
         }
         
         let paragrafo = (
-            <div className="col s12 m7 l7 xl6 offset-xl1 ">
-                <h4  className="header">{this.props.titulo}</h4>
-                <ul className='collection'>{itens}{links}</ul>
+            <div className="col-12 col-sm-7 col-xl-6 offset-xl1 ">
+                <h5  className="header">{this.props.titulo}</h5>
+                <ul className='list-group list-group-flush'>{itens}{links}</ul>
             </div>
         );
         let imagem = (
-            <div className="col s12 m5 l5 xl4 card-image">
-                <img src={this.props.img} alt="" className="responsive-img" />
+            <div className="col-12 col-sm-5  col-xl-4 card-image">
+                <img src={this.props.img} alt="" className="figure-img" />
             </div>
         );
         return (
-            <div className="col s12 m12 l12 xl12 card-topico" >
+            <div className="col-12 col-sm-12 col-xl-12 card-topico" >
                 <div id={this.props.id} className="section scrollspy">
                     
-                    <div className="card hoverable grey lighten-5 z-depth-1">            
+                    <div className="card mt-4 mx-5">            
                         { this.props.alinhamento === 'left' &&
-                            <div className="row card-topico-conteudo">
+                            <div className="row ">
                             {imagem}
                             {paragrafo}
                             </div>
                         }
                          { this.props.alinhamento !== 'left' &&
-                            <div className="row card-topico-conteudo">
+                            <div className="row ">
                             {paragrafo}
                             {imagem}
                             </div>

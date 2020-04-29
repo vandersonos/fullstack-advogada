@@ -1,11 +1,11 @@
 import React from 'react';
-import M from "materialize-css";
+//import M from "materialize-css";
 import $ from 'jquery';
 
 class Navbar extends React.Component{
     
     componentDidMount() {
-        M.AutoInit();
+        //M.AutoInit();
     }
     escondeMenu(){
         $(".sidenav-overlay").trigger("click");
@@ -15,42 +15,37 @@ class Navbar extends React.Component{
         let itens = [];
         for (const [key,value] of this.props.artigos.entries()) {
             let url = '/#'+value.id;
-            itens.push(<li key={key}><a onClick={this.escondeMenu} href={url}>{value.titulo}</a></li>);
+            itens.push(<li key={key} className="nav-item"><a className="nav-link" onClick={this.escondeMenu} href={url}>{value.titulo}</a></li>);
         }
-        let servicos = <ul id='dropdownservicos' class='dropdown-content'> {itens} </ul>
-        let itensferramentas = <li><a onClick={this.escondeMenu} href='/calculadora-pensao-alimenticia'>Calculadora de pensão</a></li>
-        let ferramentas = <ul id='dropdownferramentas' class='dropdown-content'>{itensferramentas}</ul>
+        let itensferramentas = <a  className="dropdown-item" onClick={this.escondeMenu} href='/calculadora-pensao-alimenticia'>Calculadora de pensão</a>
         return (
-            <div >
-                {servicos}
-                {ferramentas}
-                <nav>
-                    <div className="nav-wrapper container">
-                        <a href="#" data-target="mobile-demo" className="sidenav-trigger">
-                            <i className="material-icons">menu</i>
-                        </a>
-                        <ul className="left hide-on-med-and-down ">
-                            <li><a onClick={this.escondeMenu} href="/"><i class="material-icons left">home</i>Início</a></li>
-                            <li><a onClick={this.escondeMenu} href="/#sobre">Sobre</a></li>
-                            <li><a class="" href="/feed-pagina-facebook" >Postagens<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a class="dropdown-trigger" href="#!" data-target="dropdownferramentas">Ferramentas<i class="material-icons right">arrow_drop_down</i></a></li>
-                            <li><a onClick={this.escondeMenu} href="/#contato">Contato</a></li>
-                        </ul>
-                    </div>
+            <nav className="navbar navbar-expand-lg navbar-light px-5">
+
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="collapse navbar-collapse container" id="navbarSupportedContent mx-5">
+                    <ul className="navbar-nav mr-auto"> 
+                        <li className="nav-item"><a  className="nav-link"  href="/">Início</a></li>                       
+                        <li className='nav-item'><a  className='nav-link' onClick={this.escondeMenu} href="/#sobre">Sobre</a></li>
+                        <li className='nav-item'><a className="nav-link" href="/feed-pagina-facebook" >Postagens</a></li>
+                        <li className='nav-item'><a className='nav-link' onClick={this.escondeMenu} href="/#contato">Contato</a></li>
+                        <li className="nav-item dropdown">
+                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Ferramentas
+                            </a>
+                            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                                {itensferramentas}
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
                 </nav>
-                <ul className="sidenav section table-of-contents" id="mobile-demo">
-                    <li><a onClick={this.escondeMenu} href="/"><i class="material-icons left">home</i>Início</a></li>
-                    <li><a onClick={this.escondeMenu} href="/#sobre">Sobre</a></li>
-                     <li><a onClick={this.escondeMenu} href="/#contato">Contato</a></li>
-                    <li><div class="divider"></div></li>
-                    
-                    <li><a onClick={this.escondeMenu} href="/feed-pagina-facebook">Postagens</a></li>
-                    <li><div class="divider"></div></li>
-                    <li><a class="subheader"><i class="material-icons">build</i>Ferramentas</a></li>
-                    {itensferramentas}
-                </ul>
-            </div>
+  
         )
+       
        
     }
 }

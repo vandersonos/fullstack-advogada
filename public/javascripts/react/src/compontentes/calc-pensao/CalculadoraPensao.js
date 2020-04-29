@@ -1,5 +1,5 @@
 import React from 'react';
-import M from "materialize-css";
+// import M from "materialize-css";
 // import $ from 'jquery';
 import './CalculadoraPensao.css';
 import CustosIndividuais from './CustosIndividuais.js';
@@ -33,7 +33,7 @@ class CalculadoraPensao extends React.Component{
 
     componentDidMount() {
         
-        M.AutoInit();
+        // M.AutoInit();
     }
     render(){
         let total = parseFloat(this.state.totalPensao)

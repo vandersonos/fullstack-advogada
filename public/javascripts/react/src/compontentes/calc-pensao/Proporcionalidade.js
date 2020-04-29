@@ -1,5 +1,5 @@
 import React from 'react';
-import M from "materialize-css";
+//import M from "materialize-css";
 import $ from 'jquery';
 
 class Proporcionalidade extends React.Component{
@@ -19,7 +19,7 @@ class Proporcionalidade extends React.Component{
     }
     componentDidMount() {
         this.nrItens = 0
-        M.AutoInit();
+        //M.AutoInit();
     }
      calculaValor(){
         let valorPagador = parseFloat($('#p-renda-pagar').val())

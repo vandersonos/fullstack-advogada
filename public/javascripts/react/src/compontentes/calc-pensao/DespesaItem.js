@@ -1,5 +1,5 @@
 import React from 'react';
-import M from "materialize-css";
+// import M from "materialize-css";
 import $ from 'jquery';
 
 class DespesaItem extends React.Component{
@@ -12,7 +12,7 @@ class DespesaItem extends React.Component{
         };
     }
     componentDidMount() {
-        M.AutoInit();
+        // M.AutoInit();
     }
     render(){
         return (

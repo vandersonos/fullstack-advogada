@@ -152,45 +152,39 @@ class Contato extends React.Component{
             </div>
         )
         return (
-            <div className="col">
+            <div className="col-12">
                 <div id={this.props.id} className="section scrollspy">
                     <div className="card-panel grey lighten-5 z-depth-1">
                         <div className="row">                              
-                            <form className="col s12 m6 form-contato">
-                                <div className="col s12">
+                            <form className="col-12 col-sm-6 form-contato">
+                                <div className="col-12">
                                     <h5 className="valign-wrapper">Contato</h5>
                                 </div>
-                                <div className="input-field col s12">
-                                    <i className="material-icons prefix icone-verde">account_circle</i>
-                                    <label htmlFor="nome">Nome</label>
-                                    <input id="nome" type="text" className="validate"/>
-                                    
+
+
+                                <div class="form-group">
+                                    <label for="nome">Nome</label>
+                                    <input type="text" class="form-control" id="nome" />
                                 </div>
                                 
-                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">phone</i>
+                                <div className="input-field col-12"><i className="material-icons prefix icone-verde">phone</i>
                                     <input id="telefone" type="tel" maxlength='14' className="validate" onBlur={(e)=> this.maskTelefone(e)}/>
                                     <label htmlFor="telefone">Telefone</label>
                                 </div>
-                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">mail</i>
-                                    <input id="email" type="email" className="validate" />
-                                    <label htmlFor="email">E-mail</label>
-                                </div>
-                                <div className="input-field col s12"><i className="material-icons prefix icone-verde">question_answer</i>
-                                    <textarea id="mensagem" className="materialize-textarea"></textarea>
-                                    <label htmlFor="mensagem">Mensagem</label>
-                                </div>
-                                <div className="col s12 box-mensagem form"></div>
+                                lassName="input-field col-12"><i className="material-icons prefix icone-verde">question_answer</i>
+                                    <textarea idform-groupam
+                                    <label htmlFor="email">E-mail</label>                                    <label htmlFor="mensagem">Mensagem</label>
+                                </di                                <divlaform-controlcol-12 box-mensagem form"></div>
                             </form>
                             
-                            <div className="form-contato-acoes col s12 m6">
-                                <div className="col s12">
-                                    <h6 className="valign-wrapper">Escolha abaixo a melhor forma de me contatar</h6>
-                                </div>
-                                <div className="input-field col s12">
+                            <div className="form-contato-acoes col-12 col-sm-6">
+                                <div className="form-group
+<label htmlFor="mensagem">Mensagem</label>                                                                                                        <h6 className="valign-wrapper">Escolha abaixo a melhor forma de me contatar</h6>
+                                </dihtmlFor                            form-controlinput-field col-12">
                                     <div className='row box-whatsapp'>
-                                        <div className='col'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
-                                        <div className='col'>
-                                            <button className="btn waves-effect waves-light" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
+                                        <div className='col-2'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
+                                        <div className='col-10'>
+                                            <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
                                                 Enviar whatsapp<i className="material-icons right hide-on-small-only">send</i>
                                             </button>
                                         </div>
@@ -199,11 +193,11 @@ class Contato extends React.Component{
                                         {carregando}
                                     </div>
                                     <div className='row box-email'>
-                                        <div className='col'>
+                                        <div className='col-2'>
                                             <img src='img/email.png' alt='Icone do e-mail'/>
                                         </div>
-                                        <div className='col'>
-                                            <button className="btn waves-effect waves-light" onClick={(e) => this.enviarMensagemEmail(e)}>
+                                        <div className='col-10'>
+                                            <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemEmail(e)}>
                                                 Enviar email<i className="material-icons right hide-on-small-only">send</i>
                                             </button>
                                         </div>
@@ -214,20 +208,20 @@ class Contato extends React.Component{
                                     <div className="row box-mensagem email">
                                     </div>
                                 </div>
-                                <div className="col s12 form-title-pagina-facebook">
+                                <div className="col-12 form-title-pagina-facebook">
                                     <h6 className="valign-wrapper">Ou acesse minha página no facebook</h6>
                                 </div>
-                                <div className="col s12">
+                                <div className="col-12">
                                     <div className='row'>
-                                        <div className='col'>   
+                                        <div className='col-2'>   
                                             <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
                                             <img src='img/facebook.png' alt='Icone do facebook'/>
                                             </a>
                                         
                                         </div>
-                                        <div className='col'>
+                                        <div className='col-10'>
                                             <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
-                                            <button className="btn waves-effect waves-light" >
+                                            <button className="btn btn-primary btn-sm" >
                                                     Acessar página<i className="material-icons right  hide-on-small-only"></i>
                                                 </button>
                                             </a>

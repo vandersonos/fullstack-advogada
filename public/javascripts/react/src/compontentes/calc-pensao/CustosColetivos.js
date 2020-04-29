@@ -1,5 +1,5 @@
 import React from 'react';
-import M from "materialize-css";
+// import M from "materialize-css";
 import $ from 'jquery';
 
 class CustosColetivos extends React.Component{
@@ -18,7 +18,7 @@ class CustosColetivos extends React.Component{
     }
     componentDidMount() {
         this.nrItens = 0
-        M.AutoInit();
+        // M.AutoInit();
     }
     rmItem(e){
         let lista = this.state.lista;

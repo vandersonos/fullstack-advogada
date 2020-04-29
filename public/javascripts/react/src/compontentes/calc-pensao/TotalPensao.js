@@ -1,5 +1,5 @@
 import React from 'react';
-import M from "materialize-css";
+// import M from "materialize-css";
 import $ from 'jquery';
 
 class TotalPensao extends React.Component{
@@ -8,7 +8,7 @@ class TotalPensao extends React.Component{
         this.imprimir = this.imprimir.bind(this);
     }
     componentDidMount() {
-        M.AutoInit();
+        // M.AutoInit();
     }
     imprimir(){
         window.print()

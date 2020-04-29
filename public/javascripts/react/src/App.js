@@ -1,5 +1,6 @@
 import React from 'react';
-import 'materialize-css/dist/css/materialize.min.css';
+// import 'materialize-css/dist/css/materialize.min.css';
+
 import './App.css';
 import CardCartaoVisita from './compontentes/CardCartaoVisita';
 import CardTopico from './compontentes/CardTopico.js';
@@ -15,10 +16,12 @@ function App() {
     return (
         <div className="App ">
             <Navbar artigos={Artigos}/>
-            <div className='container row'>
+            <div className='container'>
+                <div class='row mx-5'>
                 <CardCartaoVisita id='sobre' />
                 {itens}
                 <Contato id='contato'/>
+                </div>
             </div>
         </div>
     );
