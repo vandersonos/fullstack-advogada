@@ -17,9 +17,9 @@ class DespesaItem extends React.Component{
     render(){
         return (
             <div class='row'>
-                <div class="input-field col s12 m6 l6">
-                    <input id="item-valor" type="number" value='{this.state.valor}' class="validate"/>
+                <div class="form-group col-12 col-md-6 col-lg-6">
                     <label for="item-valor">{this.state.despesa}</label>
+                    <input id="item-valor" type="number" value='{this.state.valor}' class="form-control"/>
                 </div>
             </div>
         )

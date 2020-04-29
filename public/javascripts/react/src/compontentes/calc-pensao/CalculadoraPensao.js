@@ -43,34 +43,30 @@ class CalculadoraPensao extends React.Component{
             <div className="container-calculadora">
                 <Navbar artigos={Artigos}/>
                 <div className='container row calculadora'>
-                    <div className="col s12 m12 l12 ">
-                        <div className="card-panel">
+                    <div className="col-12 col-md-12 col-lg-12 ">
+                        <div className="card card-panel p-4 mt-4">
                             <div className=' row '>
-                                <div className="col s2 m2 l2 ">
-                                <img src="../../img/calculadora.svg" class='logo-calculadora'></img>
+                                <div className="col-4 col-md-1">
+                                <img src="../../img/calculadora.svg" className='logo-calculadora'></img>
                                 </div>
-                                <div className="col s10 m10 l10 ">
+                                <div className="col-8 col-md-11 ">
                                     <h6>Estimativa de valor da pensão de alimentícia</h6>
-                                </div>
-                            </div>
-                            <div className=' row '>
-                                <div className="col s12 m12 l12 ">
-                                <p>Os valores calculados abaixo são apenas uma estimativa, o valor acertado será defindo em audiência.</p>
+                                    <p>Os valores calculados abaixo são apenas uma estimativa, o valor acertado será defindo em audiência.</p>
                                 </div>
                             </div>
                         </div>
-                        <CustosIndividuais lista={[]} totalIndividual={this.state.totalIndividual}  onTotalIndividualChange={this.handleTotalIndividualChange}/>
+                        <CustosIndividuais  totalIndividual={this.state.totalIndividual}  onTotalIndividualChange={this.handleTotalIndividualChange}/>
                         <hr/>
-                        <CustosColetivos lista={[]} totalColetivo={this.state.totalColetivo} onTotalColetivoChange={this.handleTotalColetivoChange}/>
+                        <CustosColetivos  totalColetivo={this.state.totalColetivo} onTotalColetivoChange={this.handleTotalColetivoChange}/>
                         <hr/>
-                        <div className="card-panel">
-                            <div class='row'>
-                                <div class='col s12 m8 l10'>
+                        <div className="card card-panel  p-4 mt-4">
+                            <div className='row'>
+                                <div className='col-12 col-md-8 col-lg-10'>
                                     <h6>Total do custo</h6>
                                     <h6><small> Custo Individual + (Custo Coletivo / Moradores)</small></h6>
                                 </div>
-                                <div class='col s12 m4 l2'>
-                                    <div class="resultado">
+                                <div className='col-12 col-md-4 col-lg-2'>
+                                    <div className="resultado">
                                         R$ {custoTotal.toFixed(2).replace('.',',')} 
                                     </div>
                                 </div>

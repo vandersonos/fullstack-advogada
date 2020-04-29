@@ -8,7 +8,7 @@ class CardCartaoVisita extends React.Component{
                 <div id={this.props.id} className="section scrollspy">
                     <div className="card-panel hoverable  lighten-5 z-depth-1 cartaoVisita mt-4 mx-5">
                         <div className="row ">
-                            <div className="col-12 col-sm-4 fotoCartao">
+                            <div className="col-12 col-sm-4 fotoCartao mb-2">
                                 <img src="img/taiane_perfil.jpeg" alt="" className="rounded-circle img-fluid img-perfil" />
                             </div>
                             <div className="col-12 col-sm-8 textoCartao">

@@ -12,7 +12,7 @@ class CardTopico extends React.Component{
                 links.push(
                     <li key={key} className='list-group-item'>
                         <Link className="waves-effect waves-light" key={key} to={value.url}>
-                        <button type="button" class='btn btn-secondary btn-sm'>{value.title}</button>
+                        <button type="button" className='btn btn-secondary btn-sm'>{value.title}</button>
                         </Link>
                     </li>
                 )

@@ -108,128 +108,92 @@ class Contato extends React.Component{
 
     render(){
         let carregando = (
-            <div className="preloader-wrapper big active">
-                <div className="spinner-layer spinner-blue">
-                    <div className="circle-clipper left">
-                        <div className="circle"></div>
-                    </div>
-                    <div className="gap-patch">
-                        <div className="circle"></div>
-                    </div>
-                    <div className="circle-clipper right">
-                        <div className="circle"></div>
-                    </div>
-                </div>
-                <div className="spinner-layer spinner-red">
-                    <div className="circle-clipper left">
-                    <div className="circle"></div>
-                    </div><div className="gap-patch">
-                    <div className="circle"></div>
-                    </div><div className="circle-clipper right">
-                    <div className="circle"></div>
-                    </div>
-                </div>
-
-                <div className="spinner-layer spinner-yellow">
-                    <div className="circle-clipper left">
-                    <div className="circle"></div>
-                    </div><div className="gap-patch">
-                    <div className="circle"></div>
-                    </div><div className="circle-clipper right">
-                    <div className="circle"></div>
-                    </div>
-                </div>
-
-                <div className="spinner-layer spinner-green">
-                    <div className="circle-clipper left">
-                    <div className="circle"></div>
-                    </div><div className="gap-patch">
-                    <div className="circle"></div>
-                    </div><div className="circle-clipper right">
-                    <div className="circle"></div>
-                    </div>
-                </div>
+            <div className="alert alert-info">
+                Aguarde ...
             </div>
         )
         return (
             <div className="col-12">
                 <div id={this.props.id} className="section scrollspy">
-                    <div className="card-panel grey lighten-5 z-depth-1">
+                    <div className="card card-panel mt-4 mx-5 px-4 mb-5">
                         <div className="row">                              
+                            <div className="col-12 box-mensagem form mb-4"></div>
                             <form className="col-12 col-sm-6 form-contato">
                                 <div className="col-12">
                                     <h5 className="valign-wrapper">Contato</h5>
                                 </div>
-
-
-                                <div class="form-group">
-                                    <label for="nome">Nome</label>
-                                    <input type="text" class="form-control" id="nome" />
+                                <div className="form-group">
+                                    <label htmlFor="nome">Nome</label>
+                                    <input type="text" className="form-control" id="nome" />
                                 </div>
                                 
-                                <div className="input-field col-12"><i className="material-icons prefix icone-verde">phone</i>
-                                    <input id="telefone" type="tel" maxlength='14' className="validate" onBlur={(e)=> this.maskTelefone(e)}/>
+                                <div className="form-group">
                                     <label htmlFor="telefone">Telefone</label>
+                                    <input id="telefone" type="tel" maxLength='14' className="form-control" onBlur={(e)=> this.maskTelefone(e)}/>
+                                    
                                 </div>
-                                lassName="input-field col-12"><i className="material-icons prefix icone-verde">question_answer</i>
-                                    <textarea idform-groupam
-                                    <label htmlFor="email">E-mail</label>                                    <label htmlFor="mensagem">Mensagem</label>
-                                </di                                <divlaform-controlcol-12 box-mensagem form"></div>
+                                <div className="form-group">
+                                    <label htmlFor="email">E-mail</label>
+                                    <input id="email" type="email" className="form-control"/>
+                                </div>
+                                <div className="form-group">
+                                    <label htmlFor="mensagem">Mensagem</label>
+                                    <textarea id="mensagem" className="form-control"></textarea>
+                                </div>
+                                
                             </form>
                             
                             <div className="form-contato-acoes col-12 col-sm-6">
-                                <div className="form-group
-<label htmlFor="mensagem">Mensagem</label>                                                                                                        <h6 className="valign-wrapper">Escolha abaixo a melhor forma de me contatar</h6>
-                                </dihtmlFor                            form-controlinput-field col-12">
-                                    <div className='row box-whatsapp'>
-                                        <div className='col-2'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
-                                        <div className='col-10'>
-                                            <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
-                                                Enviar whatsapp<i className="material-icons right hide-on-small-only">send</i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="row box-carregando whatsapp">
-                                        {carregando}
-                                    </div>
-                                    <div className='row box-email'>
-                                        <div className='col-2'>
-                                            <img src='img/email.png' alt='Icone do e-mail'/>
-                                        </div>
-                                        <div className='col-10'>
-                                            <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemEmail(e)}>
-                                                Enviar email<i className="material-icons right hide-on-small-only">send</i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="row box-carregando email">
-                                        {carregando}
-                                    </div>
-                                    <div className="row box-mensagem email">
+                                <div className='row box-whatsapp mt-5 mb-5'>
+                                    <div className='col-2'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
+                                    <div className='col-10'>
+                                        <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
+                                            Enviar whatsapp
+                                        </button>
                                     </div>
                                 </div>
-                                <div className="col-12 form-title-pagina-facebook">
-                                    <h6 className="valign-wrapper">Ou acesse minha página no facebook</h6>
+                                <div className="row box-carregando whatsapp mb-5">
+                                    {carregando}
                                 </div>
-                                <div className="col-12">
-                                    <div className='row'>
-                                        <div className='col-2'>   
-                                            <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
-                                            <img src='img/facebook.png' alt='Icone do facebook'/>
-                                            </a>
-                                        
-                                        </div>
-                                        <div className='col-10'>
-                                            <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
-                                            <button className="btn btn-primary btn-sm" >
-                                                    Acessar página<i className="material-icons right  hide-on-small-only"></i>
-                                                </button>
-                                            </a>
+                                <div className='row box-email mb-3'>
+                                    <div className='col-2'>
+                                        <img src='img/email.png' alt='Icone do e-mail'/>
+                                    </div>
+                                    <div className='col-10'>
+                                        <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemEmail(e)}>
+                                            Enviar email
+                                        </button>
+                                    </div>
+                                </div>
+                                <div className="row box-carregando email">
+                                    {carregando}
+                                </div>
+                                <div className="row box-mensagem email">
+                                </div>
+                                <div className='row'>
+                                    <div className="col-12 form-title-pagina-facebook mt-3">
+                                        <h6 className="valign-wrapper">Ou acesse minha página no facebook</h6>
+                                    </div>
+                                    <div className="col-12">
+                                        <div className='row'>
+                                            <div className='col-2'>   
+                                                <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
+                                                <img src='img/facebook.png' alt='Icone do facebook'/>
+                                                </a>
+                                            
+                                            </div>
+                                            <div className='col-10'>
+                                                <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
+                                                <button className="btn btn-primary btn-sm" >
+                                                        Acessar página<i className="material-icons right  hide-on-small-only"></i>
+                                                    </button>
+                                                </a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-    
                             </div>
+    
                         </div>
                     </div>
                 </div>

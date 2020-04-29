@@ -54,65 +54,65 @@ class Proporcionalidade extends React.Component{
         perc_recebedor = perc_recebedor.toFixed(2).replace('.',',')
         
         return (
-            <div className="card-panel">
-                <div id="modal-help-gproporcional" class="modal">
-                    <div class="modal-content">
+            <div className="card card-panel  p-4 mt-4">
+                <div id="modal-help-gproporcional" className="modal">
+                    <div className="modal-content">
                     <h6>Proporcionalidade</h6>
                     <p>
                         Aqui você vai discriminar a renda dos responsaveis pelo beneficiado, para fins de caculo de proporcionalidade, pois o gasto total deve ser dividido de forma proporcional por ambas as partes responsáveis. Ou seja, o responsável que ganha mais deve colaborar mais nos gastos do beneficiado.
                     </p>
                     </div>
-                    <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect btn-small">ok</a>
+                    <div className="modal-footer">
+                    <a href="#!" className="modal-close waves-effect btn-small">ok</a>
                     </div>
                 </div>
-                <div class='row '>
-                    <div className='col s12'>
+                <div className='row '>
+                    <div className='col-12'>
                         <h6>
                             Proporcionalidade
-                            <a class="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gproporcional">
-                                <i class="material-icons">info</i>
+                            <a className="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gproporcional">
+                                <i className="material-icons">info</i>
                             </a>
                         </h6>
                     </div>
                 </div>
-                <div class='row '> 
-                    <div class="col s12 m6">
-                        <div class="input-field col s12">
-                            <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} class="validate"/>
-                            <label for="p-renda-pagar">Renda quem vai pagar (R$)</label>
+                <div className='row '> 
+                    <div className="col-12 col-md-6">
+                        <div className="form-group col-12">
+                            <label htmlFor="p-renda-pagar">Renda quem vai pagar (R$)</label>
+                            <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} className="form-control"/>
                         </div>
                     </div>
-                    <div class="col s12 m6">
-                        <div class="input-field col s12">
-                        <input placeholder="" id="p-renda-receber" type="number" onChange={this.calculaValor}  class="validate"/>
-                            <label for="p-renda-receber">Renda quem vai receber (R$)</label>
+                    <div className="col-12 col-md-6">
+                        <div className="form-group col-12">
+                            <label htmlFor="p-renda-receber">Renda quem vai receber (R$)</label>
+                            <input placeholder="" id="p-renda-receber" type="number" onChange={this.calculaValor}  className="form-control"/>
                         </div>
                     </div>
                 </div>
-                <div class='row'>
-                    <div class="col s12 m6">
-                        <h7>Porcentagem de responsabilidade pagador</h7>
-                        <p className='paragrafo-resultado'>
-                            <div class="resultado col s6">
+                <div className='row'>
+                    <div className="col-12 col-md-6">
+                        <h6>Porcentagem de responsabilidade pagador</h6>
+                        <div className='paragrafo-resultado'>
+                            <div className="resultado col col-sm-6">
                                 {perc_pagador} %
                             </div>
-                            <div class="resultado col s6">
+                            <div className="resultado col-6">
                                 R$ {valorPagadorTotal} 
                             </div>
-                        </p>
+                        </div>
                         
                     </div>
-                    <div class="col s12 m6">
-                        <h7>Porcentagem de responsabilidade beneficiado</h7>
-                        <p className='paragrafo-resultado'>
-                            <div class="resultado col s6">
+                    <div className="col-12 col-md-6">
+                        <h6>Porcentagem de responsabilidade beneficiado</h6>
+                        <div className='paragrafo-resultado'>
+                            <div className="resultado col col-sm-6">
                                 {perc_recebedor} % 
                             </div>
-                            <div class="resultado col s6">
+                            <div className="resultado col col-sm-6">
                                 R$ {valorRecebedorTotal}
                             </div>
-                        </p>
+                        </div>
                         
                     </div>
                 </div>

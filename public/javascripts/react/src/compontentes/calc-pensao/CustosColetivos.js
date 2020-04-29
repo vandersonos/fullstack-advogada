@@ -60,26 +60,12 @@ class CustosColetivos extends React.Component{
         this.props.onTotalColetivoChange(valor);
     }
     render(){
-        let itens = [];
-        for (const [index, value] of this.state.lista.entries()) {
-            let valor = value.valor
-            itens.push(
-                <tr data-key={value.id}>
-                    <td>{value.item}</td>
-                    <td>{valor.toFixed(2).replace('.',',')}</td>
-                    <td>
-                        <a class="btn-floating btn-small waves-effect waves-light red" onClick={this.rmItem}>
-                        <i id={value.id} class="material-icons">remove</i>
-                        </a>
-                    </td>
-                </tr>
-            );
-        }
+        
         let total = parseFloat(this.state.total)
         return (
-            <div  className="card-panel">
-                <div id="modal-help-gcoletivo" class="modal">
-                    <div class="modal-content">
+            <div  className="card card-panel  p-4 mt-4">
+                <div id="modal-help-gcoletivo" className="modal">
+                    <div className="modal-content">
                     <h6>Gastos coletivos</h6>
                     <p>
                         Aqui você vai discriminar somente os gastos coletivos de todas as pessoas da moradia, por exemplo: Aluguel, luz, água, etc.
@@ -87,59 +73,60 @@ class CustosColetivos extends React.Component{
                         Estes gastos são divididos pelo número de moradores da casa, para o cálculo do valor proporcional de cada morador e por consequência o gasto individual do beneficiado.
                     </p>
                     </div>
-                    <div class="modal-footer">
-                    <a href="#!" class="modal-close waves-effect  btn-small">ok</a>
+                    <div className="modal-footer">
+                    <a href="#!" className="modal-close waves-effect  btn-small">ok</a>
                     </div>
                 </div>
-                <div class="row">
+                <div className="row">
                     <div className='col'>
                         <h6>Gastos coletivos dos moradores da residência
-                            <a class="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gcoletivo">
-                                <i class="material-icons">info</i>
+                            <a className="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gcoletivo">
+                                <i className="material-icons">info</i>
                             </a>
                         </h6>
                     </div>
                 </div>
-                <div class="row"> 
-                    <div class="input-field col s12">
-                        <input placeholder="" id="cc_nr_pessoas" type="text" class="validate"/>
-                        <label for="nr_pessoas">Quantas pessoas moram na residência?</label>
-                    </div>
-                    <div class="input-field col s12 forms-table">
-                        <input placeholder="" id="cc_item-despesa" type="text" class="validate"/>
-                        <label for="item-despesa">Discrição da despesa</label>
-                    </div>
-                    <div class="input-field col s8 m4 l10 forms-table">
-                        <input id="cc_item-valor" type="number" class="validate"/>
-                        <label for="item-valor">Valor da despesa</label>
-                       
-                    </div>
-                    <div class="input-field col s4 m4 l2 forms-table">
-                        <a class="btn-floating btn-large waves-effect waves-light red" onClick={this.addItem} ><i class="material-icons">add</i></a>
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="nr_pessoas">Quantas pessoas moram na residência?</label>
+                        <input placeholder="" id="cc_nr_pessoas" type="text" className="form-control"/>
                     </div>
                 </div>
-                <div class='row' >
-                   <table class='responsive-table highlight'>
-                        <thead>
-                        <tr>
-                            <th>Despesa</th>
-                            <th>Valor</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-
-                        <tbody id='table-custos-individuais'>
-                        {itens}
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td colspan='2'>Total Gastos Individuais do Beneficiado</td>
-                                <td>R$ {total.toFixed(2).replace('.', ',')}</td>
-                                
-                            </tr>
-                        </tfoot>
-                    </table>
-
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="item-aluguel">Aluguel</label>
+                        <input id="item-aluguel" type="number" onChange={this.calcula} className="form-control"/> 
+                    </div>
+                </div>
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="item-condominio">Condomínio</label>
+                        <input id="item-condominio" type="number" onChange={this.calcula} className="form-control"/> 
+                    </div>
+                </div>
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="item-luz">Luz</label>
+                        <input id="item-luz" type="number" onChange={this.calcula} className="form-control"/> 
+                    </div>
+                </div>
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="item-agua">Água</label>
+                        <input id="item-agua" type="number" onChange={this.calcula} className="form-control"/> 
+                    </div>
+                </div>
+                <div className="row"> 
+                    <div className="form-group col-12">
+                        <label htmlFor="item-internet">Internet/Telefone</label>
+                        <input id="item-internet" type="number" onChange={this.calcula} className="form-control"/> 
+                    </div>
+                </div>
+                
+                
+                <div className='row' >
+                    <span>Total Gastos Individuais do Beneficiado</span>
+                    <span>R$ {total.toFixed(2).replace('.', ',')}</span>
                 </div>
             </div>
         )
