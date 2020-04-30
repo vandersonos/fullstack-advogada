@@ -9,6 +9,10 @@
         .btn-floating {
             display: none !important; 
         }
+        .badge{
+            display: none !important; 
+
+        }
 }
  .paragrafo-resultado{
      padding: 1em;
