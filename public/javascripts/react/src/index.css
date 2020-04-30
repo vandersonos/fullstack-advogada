@@ -1,16 +1,26 @@
  :root{
-    --corpadraoAmareloForte:#c9a029;
-    --corpadraborda:#e3d3a4;
+    /* --corpadraoAmareloForte:#c9a029; */
+    --corpadraoAmareloForte: #7c202c;
+    /* --corpadraborda:#e3d3a4; */
+    --corpadrahover:#ac202c;
+    --corpadraborda:#7c202c;
     --corpadraoCinzaEscuro: #4b4d4e;
     --corpadraoCinzaClaro:#e1e2e1;
+}
+.btn > i{
+    margin-right: 0.5rem;
+}
+.badge{
+    color: var(--corpadraoAmareloForte)!important;
 }
 .btn{
     background-color: var(--corpadraoAmareloForte)!important;
     border-color: var(--corpadraoAmareloForte)!important;
+    display: flex;
 }
 .btn:hover{
-    background-color: var(--corpadraborda)!important;
-    border-color: var(--corpadraborda)!important;
+    background-color: var(--corpadrahover)!important;
+    border-color: var(--corpadrahover)!important;
 }
 body {
   margin: 0;

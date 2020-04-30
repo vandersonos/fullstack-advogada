@@ -43,7 +43,7 @@ class CalculadoraPensao extends React.Component{
             <div className="container-calculadora">
                 <Navbar artigos={Artigos}/>
                 <div className='container row calculadora'>
-                    <div className="col-12 col-md-12 col-lg-12 ">
+                    <div className="col-12 col-md-12 col-lg-6 offset-lg-3 ">
                         <div className="card card-panel p-4 mt-4">
                             <div className=' row '>
                                 <div className="col-4 col-md-1">
@@ -61,11 +61,11 @@ class CalculadoraPensao extends React.Component{
                         <hr/>
                         <div className="card card-panel  p-4 mt-4">
                             <div className='row'>
-                                <div className='col-12 col-md-8 col-lg-10'>
+                                <div className='col-12 col-sm-8'>
                                     <h6>Total do custo</h6>
                                     <h6><small> Custo Individual + (Custo Coletivo / Moradores)</small></h6>
                                 </div>
-                                <div className='col-12 col-md-4 col-lg-2'>
+                                <div className='col-12 col-sm-4'>
                                     <div className="resultado">
                                         R$ {custoTotal.toFixed(2).replace('.',',')} 
                                     </div>

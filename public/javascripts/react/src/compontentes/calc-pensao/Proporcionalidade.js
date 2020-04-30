@@ -78,13 +78,13 @@ class Proporcionalidade extends React.Component{
                 </div>
                 <div className='row '> 
                     <div className="col-12 col-md-6">
-                        <div className="form-group col-12">
+                        <div className="form-group">
                             <label htmlFor="p-renda-pagar">Renda quem vai pagar (R$)</label>
                             <input placeholder="" id="p-renda-pagar" type="number" onChange={this.calculaValor} className="form-control"/>
                         </div>
                     </div>
                     <div className="col-12 col-md-6">
-                        <div className="form-group col-12">
+                        <div className="form-group">
                             <label htmlFor="p-renda-receber">Renda quem vai receber (R$)</label>
                             <input placeholder="" id="p-renda-receber" type="number" onChange={this.calculaValor}  className="form-control"/>
                         </div>

@@ -24,17 +24,19 @@ class TotalPensao extends React.Component{
                     <div className='col-12'>
                         <b>Valor estimado da pensão</b>
                     </div>
-                    <div className='col-8 col-lg-10 '>
+                    <div className='col-8  '>
                         <p className="resultado">
                                 R$ {valor.toFixed(2).replace('.',',')} 
                             </p>
                     </div>
-                    <div className="col-4 col-sm-4 col-lg-2">
-                        <a className="btn-floating btn-large waves-effect waves-light red" onClick={this.imprimir} ><i className="material-icons">print</i></a>
+                    <div className="col-4 ">
+                        <button className="btn btn-primary" onClick={this.imprimir} >
+                            <i className="material-icons">print</i>   Imprimir
+                        </button>
                     </div>
                 </div>
-                <div className='row'> Estimativa calculada em: {data.getDate()}/{data.getMonth()}/{data.getFullYear()}</div>
-                <div className='row'><p> * A utilização dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
+                <div className='row px-3 mt-2'> Estimativa calculada em: {data.getDate()}/{data.getMonth()}/{data.getFullYear()}</div>
+                <div className='row px-3 mt-2'><p> * A utilização dessa estimativa para fins processuais é de inteira responsabilidade do advogado da parte.</p></div>
             </div>
         )
        

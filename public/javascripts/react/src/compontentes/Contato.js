@@ -148,7 +148,7 @@ class Contato extends React.Component{
                                     <div className='col-2'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
                                     <div className='col-10'>
                                         <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
-                                            Enviar whatsapp
+                                        <i className="material-icons">send</i>Enviar whatsapp
                                         </button>
                                     </div>
                                 </div>
@@ -161,7 +161,7 @@ class Contato extends React.Component{
                                     </div>
                                     <div className='col-10'>
                                         <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemEmail(e)}>
-                                            Enviar email
+                                        <i className="material-icons">send</i>Enviar email
                                         </button>
                                     </div>
                                 </div>
@@ -185,7 +185,7 @@ class Contato extends React.Component{
                                             <div className='col-10'>
                                                 <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
                                                 <button className="btn btn-primary btn-sm" >
-                                                        Acessar página<i className="material-icons right  hide-on-small-only"></i>
+                                                <i className="material-icons">trending_flat</i>Acessar página<i className="material-icons right  hide-on-small-only"></i>
                                                     </button>
                                                 </a>
                                             </div>
