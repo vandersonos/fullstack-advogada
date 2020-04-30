@@ -55,25 +55,36 @@ class Proporcionalidade extends React.Component{
         
         return (
             <div className="card card-panel  p-4 mt-4">
-                <div id="modal-help-gproporcional" className="modal">
-                    <div className="modal-content">
-                    <h6>Proporcionalidade</h6>
-                    <p>
-                        Aqui você vai discriminar a renda dos responsaveis pelo beneficiado, para fins de caculo de proporcionalidade, pois o gasto total deve ser dividido de forma proporcional por ambas as partes responsáveis. Ou seja, o responsável que ganha mais deve colaborar mais nos gastos do beneficiado.
-                    </p>
-                    </div>
-                    <div className="modal-footer">
-                    <a href="#!" className="modal-close waves-effect btn-small">ok</a>
+                <div  id="modal-help-gproporcional" className="modal" tabindex="-1" role="dialog">
+                    <div className="modal-dialog" role="document">
+                        <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Proporcionalidade</h5>
+                            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div className="modal-body">
+                        <p>
+                            Aqui você vai discriminar a renda dos responsaveis pelo beneficiado, para fins de caculo de proporcionalidade, pois o gasto total deve ser dividido de forma proporcional por ambas as partes responsáveis. Ou seja, o responsável que ganha mais deve colaborar mais nos gastos do beneficiado.
+                        </p>
+                        </div>
+                        <div className="modal-footer">
+                            <button type="button" className="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        </div>
+                        </div>
                     </div>
                 </div>
+
+                
                 <div className='row '>
                     <div className='col-12'>
-                        <h6 className='d-flex align-items-center'>
-                            Proporcionalidade
-                            <a className="badge" href="#modal-help-gproporcional">
-                                <i className="material-icons">info</i>
-                            </a>
-                        </h6>
+                        <h4 className='d-flex align-items-center'>Proporcionalidade 
+    
+                            <span className="badge" data-toggle="modal" data-target="#modal-help-gproporcional">
+                            <i className="material-icons">info</i> 
+                            </span>
+                        </h4>
                     </div>
                 </div>
                 <div className='row '> 
