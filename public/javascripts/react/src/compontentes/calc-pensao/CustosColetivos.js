@@ -62,7 +62,7 @@ class CustosColetivos extends React.Component{
                 </div>
                 
                     <div className='col'>
-                        <h4>Gastos coletivos dos moradores da residência
+                        <h4 className='d-flex align-items-center'>Gastos coletivos dos moradores da residência
                             <span className="badge" data-toggle="modal" data-target="#modal-help-gcoletivo">
                             <i className="material-icons">info</i> 
                             </span>

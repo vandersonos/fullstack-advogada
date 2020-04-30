@@ -12,7 +12,7 @@ class CardTopico extends React.Component{
                 links.push(
                     <li key={key} className='list-group-item'>
                         <Link className="waves-effect waves-light" key={key} to={value.url}>
-                        <button type="button" className='btn btn-secondary btn-sm'>{value.title}</button>
+                        <button type="button" className='btn btn-secondary btn-sm mt-2'>{value.title}</button>
                         </Link>
                     </li>
                 )
@@ -34,7 +34,7 @@ class CardTopico extends React.Component{
             <div className="col-12 col-sm-12 col-xl-12 card-topico" >
                 <div id={this.props.id} className="section scrollspy">
                     
-                    <div className="card mt-4 mx-5">            
+                    <div className="card  mt-4 mx-sm-2 mx-md-5">            
                         { this.props.alinhamento === 'left' &&
                             <div className="row ">
                             {imagem}

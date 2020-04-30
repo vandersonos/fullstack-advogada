@@ -24,13 +24,13 @@ class TotalPensao extends React.Component{
                     <div className='col-12'>
                         <b>Valor estimado da pensão</b>
                     </div>
-                    <div className='col-8  '>
+                    <div className='col-12 col-sm-8  '>
                         <p className="resultado">
                                 R$ {valor.toFixed(2).replace('.',',')} 
                             </p>
                     </div>
-                    <div className="col-4 ">
-                        <button className="btn btn-primary" onClick={this.imprimir} >
+                    <div className="col-12 col-sm-4 my-4">
+                        <button className="btn btn-primary d-flex align-items-center" onClick={this.imprimir} >
                             <i className="material-icons">print</i>   Imprimir
                         </button>
                     </div>

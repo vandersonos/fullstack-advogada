@@ -16,8 +16,8 @@ function App() {
     return (
         <div className="App ">
             <Navbar artigos={Artigos}/>
-            <div className='container'>
-                <div className='row mx-5'>
+            <div className='container mx-auto'>
+                <div className='row mx-sm-5 mx-1'>
                 <CardCartaoVisita id='sobre' />
                 {itens}
                 <Contato id='contato'/>

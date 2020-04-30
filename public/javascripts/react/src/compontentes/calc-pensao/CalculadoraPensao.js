@@ -42,7 +42,7 @@ class CalculadoraPensao extends React.Component{
         return (
             <div className="container-calculadora">
                 <Navbar artigos={Artigos}/>
-                <div className='container row calculadora'>
+                <div className='container row calculadora mx-auto'>
                     <div className="col-12 col-md-12 col-lg-6 offset-lg-3 ">
                         <div className="card card-panel p-4 mt-4">
                             <div className=' row '>

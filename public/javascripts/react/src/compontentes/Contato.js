@@ -115,9 +115,9 @@ class Contato extends React.Component{
         return (
             <div className="col-12">
                 <div id={this.props.id} className="section scrollspy">
-                    <div className="card card-panel mt-4 mx-5 px-4 mb-5">
+                    <div className="card card-panel mt-4 mx-sm-2 mx-md-5 px-4 mb-5 py-4">
                         <div className="row">                              
-                            <div className="col-12 box-mensagem form mb-4"></div>
+                            
                             <form className="col-12 col-sm-6 form-contato">
                                 <div className="col-12">
                                     <h5 className="valign-wrapper">Contato</h5>
@@ -144,9 +144,10 @@ class Contato extends React.Component{
                             </form>
                             
                             <div className="form-contato-acoes col-12 col-sm-6">
+                          
                                 <div className='row box-whatsapp mt-5 mb-5'>
-                                    <div className='col-2'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
-                                    <div className='col-10'>
+                                    <div className='col-3'><img src='img/whatsapp.png' alt='Icone do whatsapp'/></div>
+                                    <div className='col-9'>
                                         <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemWhatsapp(e)}>
                                         <i className="material-icons">send</i>Enviar whatsapp
                                         </button>
@@ -156,10 +157,10 @@ class Contato extends React.Component{
                                     {carregando}
                                 </div>
                                 <div className='row box-email mb-3'>
-                                    <div className='col-2'>
+                                    <div className='col-3'>
                                         <img src='img/email.png' alt='Icone do e-mail'/>
                                     </div>
-                                    <div className='col-10'>
+                                    <div className='col-9'>
                                         <button className="btn btn-primary btn-sm" onClick={(e) => this.enviarMensagemEmail(e)}>
                                         <i className="material-icons">send</i>Enviar email
                                         </button>
@@ -171,18 +172,19 @@ class Contato extends React.Component{
                                 <div className="row box-mensagem email">
                                 </div>
                                 <div className='row'>
+                                    <div className="col-12 box-mensagem form mb-4"></div>
                                     <div className="col-12 form-title-pagina-facebook mt-3">
                                         <h6 className="valign-wrapper">Ou acesse minha página no facebook</h6>
                                     </div>
                                     <div className="col-12">
                                         <div className='row'>
-                                            <div className='col-2'>   
+                                            <div className='col-3'>   
                                                 <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
                                                 <img src='img/facebook.png' alt='Icone do facebook'/>
                                                 </a>
                                             
                                             </div>
-                                            <div className='col-10'>
+                                            <div className='col-9'>
                                                 <a target='_blank' rel="noopener noreferrer" href='https://www.facebook.com/taianemartinscosta/'>
                                                 <button className="btn btn-primary btn-sm" >
                                                 <i className="material-icons">trending_flat</i>Acessar página<i className="material-icons right  hide-on-small-only"></i>

@@ -57,7 +57,7 @@ class CustosIndividuais extends React.Component{
                     </div>
                 </div>
                 <div className='row'>
-                    <h4>Gastos individuais do beneficiado 
+                    <h4 className='d-flex align-items-center'>Gastos individuais do beneficiado 
     
                         <span className="badge" data-toggle="modal" data-target="#modal-help-gindividual">
                         <i className="material-icons">info</i> 

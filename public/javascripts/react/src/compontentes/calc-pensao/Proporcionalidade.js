@@ -68,9 +68,9 @@ class Proporcionalidade extends React.Component{
                 </div>
                 <div className='row '>
                     <div className='col-12'>
-                        <h6>
+                        <h6 className='d-flex align-items-center'>
                             Proporcionalidade
-                            <a className="waves-effect waves-light btn-help modal-trigger" href="#modal-help-gproporcional">
+                            <a className="badge" href="#modal-help-gproporcional">
                                 <i className="material-icons">info</i>
                             </a>
                         </h6>
