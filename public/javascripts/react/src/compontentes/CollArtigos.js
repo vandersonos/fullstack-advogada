@@ -1,4 +1,18 @@
 let artigos = [
+    {
+            id:'pensao',
+            titulo:'Pensão de Alimentos',
+            img:'img/pensao-alimenticia.jpg',
+            itens:[
+                "Ação de Alimentos",
+                "Ação de Regualação de Visitas"
+            ],
+            texto:"",
+            links:[{
+                url:"/calculadora-pensao-alimenticia",
+                title:"Calcule os valores da pensão alimentícia"
+            }]
+        },
         {
             titulo:'Divórcio',
             id:'divorcio',
@@ -23,21 +37,8 @@ let artigos = [
                     "Guarda Unilateral"
             ]
         
-        },
-        {
-            id:'pensao',
-            titulo:'Pensão de Alimentos',
-            img:'img/pensao-alimenticia.jpg',
-            itens:[
-                "Ação de Alimentos",
-                "Ação de Regualação de Visitas"
-            ],
-            texto:"",
-            links:[{
-                url:"/calculadora-pensao-alimenticia",
-                title:"Calcule os valores da pensão alimentícia"
-            }]
         }
+        
     ];
     
 export default artigos;
